@@ -1,0 +1,2451 @@
+{
+  "run_id": "radar_20250306_1438_089084",
+  "created_at": "2026-11-17T08:16:15+00:00",
+  "mode": "radar",
+  "init_label": "06 Mar 2025 \u00b7 14:38 UTC",
+  "init_timestamp": "2025030614384700",
+  "init_dt_utc": "2025-03-06T14:38",
+  "timestamps": [
+    "2025030614264800",
+    "2025030614324700",
+    "2025030614384700"
+  ],
+  "obs_timestamps": [
+    "2025030614444700",
+    "2025030614504800",
+    "2025030614564800",
+    "2025030615024800",
+    "2025030615084800"
+  ],
+  "timestep_min": 6.0,
+  "lead_times_min": [
+    6.0,
+    12.0,
+    18.0,
+    24.0,
+    30.0
+  ],
+  "radar_lat": -7.410306,
+  "radar_lon": 112.760422,
+  "extent_km": 150.0,
+  "res_km": 1.0,
+  "surabaya_xy_km": [
+    -0.9187146375259277,
+    16.899235465190625
+  ],
+  "config": {
+    "data_dir": "/Users/aliwardhana/Downloads/Training_TL/00_data/Radar/2025-03-06",
+    "mode": "radar",
+    "grid_extent_km": 150.0,
+    "res_km": 1.0,
+    "target_alt_m": 1500.0,
+    "max_elev_deg": 12.0,
+    "zr_a": 250.0,
+    "zr_b": 1.2,
+    "horizon_min": 30.0,
+    "n_members": 4,
+    "n_cascade_levels": 6,
+    "seed": 42,
+    "verify": true,
+    "thresholds": [
+      1.0,
+      5.0,
+      10.0
+    ],
+    "fss_scales_km": [
+      5,
+      15,
+      30
+    ],
+    "fss_thr_mmh": 5.0,
+    "init_mode": "auto",
+    "init_timestamp": null,
+    "lookback_scans": 3,
+    "geojson_path": null,
+    "save_run": true,
+    "label": ""
+  },
+  "metrics": {
+    "lead_times": [
+      6.0,
+      12.0,
+      18.0,
+      24.0,
+      30.0
+    ],
+    "crps": [
+      0.533259389450311,
+      0.6187123103094827,
+      0.6984024176593819,
+      0.7355637920290701,
+      0.7201713758279753
+    ],
+    "brier": {
+      "1": [
+        0.027641799300909042,
+        0.03770461678504944,
+        0.048550885170698166,
+        0.056840769946575165,
+        0.060705848038196564
+      ],
+      "5": [
+        0.017240311950445175,
+        0.020333435386419296,
+        0.02544531039893627,
+        0.028288189321756363,
+        0.03002309612929821
+      ],
+      "10": [
+        0.012617428787052631,
+        0.01473787147551775,
+        0.01753123104572296,
+        0.01844555139541626,
+        0.018977873027324677
+      ]
+    },
+    "roc_auc": {
+      "1": [
+        0.942187823337301,
+        0.9179830237867365,
+        0.8735196426735297,
+        0.8347795262412582,
+        0.8165944473356928
+      ],
+      "5": [
+        0.9090569853060595,
+        0.8814002856064486,
+        0.827001512413553,
+        0.787261032862083,
+        0.7572379650666289
+      ],
+      "10": [
+        0.8935832078307215,
+        0.8653357900649101,
+        0.808653589889622,
+        0.7722169799773446,
+        0.7430834701384802
+      ]
+    },
+    "fss": {
+      "5": [
+        0.8728923201560974,
+        0.7502208352088928,
+        0.5819669365882874,
+        0.46704840660095215,
+        0.3612527847290039
+      ],
+      "15": [
+        0.9402676820755005,
+        0.8610992431640625,
+        0.727820098400116,
+        0.6177554130554199,
+        0.5144991278648376
+      ],
+      "30": [
+        0.9645493626594543,
+        0.9122300148010254,
+        0.8117810487747192,
+        0.7364654541015625,
+        0.651511013507843
+      ]
+    },
+    "mae": [
+      0.6797155141830444,
+      0.8208156228065491,
+      0.9616010189056396,
+      1.0555508136749268,
+      1.0997427701950073
+    ],
+    "bias": [
+      0.059658121317625046,
+      0.06298627704381943,
+      0.09795697778463364,
+      0.09434434026479721,
+      0.14578019082546234
+    ],
+    "corr": [
+      0.5315124480773359,
+      0.4781154617369429,
+      0.3491597460360147,
+      0.2607407156369333,
+      0.22843477005080173
+    ],
+    "spread": [
+      0.4327145516872406,
+      0.6356155276298523,
+      0.7746948599815369,
+      0.9046598672866821,
+      1.0137419700622559
+    ],
+    "obs_fraction": [
+      0.032285904274133075,
+      0.03167753710332338,
+      0.029512881821140053,
+      0.02982413944341478,
+      0.02900355116650868
+    ],
+    "fcst_fraction": [
+      0.03692647246077446,
+      0.03914772003791684,
+      0.04220370396570507,
+      0.04619346076031748,
+      0.048358116042500815
+    ],
+    "thresholds": [
+      1.0,
+      5.0,
+      10.0
+    ],
+    "fss_scales_km": [
+      5,
+      15,
+      30
+    ],
+    "fss_thr": 5.0,
+    "metric_library": "pysteps"
+  },
+  "meta": {
+    "inventory": {
+      "data_dir": "/Users/aliwardhana/Downloads/Training_TL/00_data/Radar/2025-03-06",
+      "n_scans": 238,
+      "n_incomplete": 0,
+      "first_label": "06 Mar 2025 \u00b7 00:00 UTC",
+      "last_label": "06 Mar 2025 \u00b7 23:49 UTC",
+      "size_gb": 2.176538692
+    },
+    "activity": [
+      {
+        "timestamp": "2025030600004000",
+        "label": "06 Mar 2025 \u00b7 00:00 UTC",
+        "time": "00:00",
+        "convective_pixels": 1766,
+        "strong_pixels": 605,
+        "max_dbz": 54.29999542236328,
+        "valid_fraction": 0.4622962471017279
+      },
+      {
+        "timestamp": "2025030600064000",
+        "label": "06 Mar 2025 \u00b7 00:06 UTC",
+        "time": "00:06",
+        "convective_pixels": 1754,
+        "strong_pixels": 559,
+        "max_dbz": 54.70000457763672,
+        "valid_fraction": 0.46561105479627624
+      },
+      {
+        "timestamp": "2025030600124000",
+        "label": "06 Mar 2025 \u00b7 00:12 UTC",
+        "time": "00:12",
+        "convective_pixels": 1780,
+        "strong_pixels": 614,
+        "max_dbz": 51.709999084472656,
+        "valid_fraction": 0.4610757686974961
+      },
+      {
+        "timestamp": "2025030600183900",
+        "label": "06 Mar 2025 \u00b7 00:18 UTC",
+        "time": "00:18",
+        "convective_pixels": 1812,
+        "strong_pixels": 603,
+        "max_dbz": 53.55999755859375,
+        "valid_fraction": 0.4612651030561478
+      },
+      {
+        "timestamp": "2025030600244000",
+        "label": "06 Mar 2025 \u00b7 00:24 UTC",
+        "time": "00:24",
+        "convective_pixels": 1941,
+        "strong_pixels": 619,
+        "max_dbz": 55.30999755859375,
+        "valid_fraction": 0.4617049413354772
+      },
+      {
+        "timestamp": "2025030600303900",
+        "label": "06 Mar 2025 \u00b7 00:30 UTC",
+        "time": "00:30",
+        "convective_pixels": 1948,
+        "strong_pixels": 587,
+        "max_dbz": 55.3699951171875,
+        "valid_fraction": 0.4579328183438778
+      },
+      {
+        "timestamp": "2025030600364000",
+        "label": "06 Mar 2025 \u00b7 00:36 UTC",
+        "time": "00:36",
+        "convective_pixels": 1880,
+        "strong_pixels": 483,
+        "max_dbz": 54.57999801635742,
+        "valid_fraction": 0.4459697997133769
+      },
+      {
+        "timestamp": "2025030600424000",
+        "label": "06 Mar 2025 \u00b7 00:42 UTC",
+        "time": "00:42",
+        "convective_pixels": 1535,
+        "strong_pixels": 316,
+        "max_dbz": 53.90999984741211,
+        "valid_fraction": 0.44153063721206615
+      },
+      {
+        "timestamp": "2025030600483900",
+        "label": "06 Mar 2025 \u00b7 00:48 UTC",
+        "time": "00:48",
+        "convective_pixels": 1227,
+        "strong_pixels": 233,
+        "max_dbz": 50.58000564575195,
+        "valid_fraction": 0.44296083982895823
+      },
+      {
+        "timestamp": "2025030600544000",
+        "label": "06 Mar 2025 \u00b7 00:54 UTC",
+        "time": "00:54",
+        "convective_pixels": 1015,
+        "strong_pixels": 175,
+        "max_dbz": 46.470001220703125,
+        "valid_fraction": 0.42994046162629473
+      },
+      {
+        "timestamp": "2025030601003900",
+        "label": "06 Mar 2025 \u00b7 01:00 UTC",
+        "time": "01:00",
+        "convective_pixels": 835,
+        "strong_pixels": 185,
+        "max_dbz": 48.48999786376953,
+        "valid_fraction": 0.4250672865182285
+      },
+      {
+        "timestamp": "2025030601063900",
+        "label": "06 Mar 2025 \u00b7 01:06 UTC",
+        "time": "01:06",
+        "convective_pixels": 791,
+        "strong_pixels": 146,
+        "max_dbz": 49.880001068115234,
+        "valid_fraction": 0.4247585258718119
+      },
+      {
+        "timestamp": "2025030601124000",
+        "label": "06 Mar 2025 \u00b7 01:12 UTC",
+        "time": "01:12",
+        "convective_pixels": 746,
+        "strong_pixels": 144,
+        "max_dbz": 59.43000030517578,
+        "valid_fraction": 0.4223729129528004
+      },
+      {
+        "timestamp": "2025030601184000",
+        "label": "06 Mar 2025 \u00b7 01:18 UTC",
+        "time": "01:18",
+        "convective_pixels": 716,
+        "strong_pixels": 209,
+        "max_dbz": 60.400001525878906,
+        "valid_fraction": 0.4198416582194414
+      },
+      {
+        "timestamp": "2025030601244000",
+        "label": "06 Mar 2025 \u00b7 01:24 UTC",
+        "time": "01:24",
+        "convective_pixels": 906,
+        "strong_pixels": 195,
+        "max_dbz": 49.099998474121094,
+        "valid_fraction": 0.42034266606079673
+      },
+      {
+        "timestamp": "2025030601304000",
+        "label": "06 Mar 2025 \u00b7 01:30 UTC",
+        "time": "01:30",
+        "convective_pixels": 983,
+        "strong_pixels": 196,
+        "max_dbz": 51.93000793457031,
+        "valid_fraction": 0.4185501066098081
+      },
+      {
+        "timestamp": "2025030601364000",
+        "label": "06 Mar 2025 \u00b7 01:36 UTC",
+        "time": "01:36",
+        "convective_pixels": 930,
+        "strong_pixels": 244,
+        "max_dbz": 51.589996337890625,
+        "valid_fraction": 0.4070717839374556
+      },
+      {
+        "timestamp": "2025030601423900",
+        "label": "06 Mar 2025 \u00b7 01:42 UTC",
+        "time": "01:42",
+        "convective_pixels": 1020,
+        "strong_pixels": 293,
+        "max_dbz": 54.849998474121094,
+        "valid_fraction": 0.3959867979086953
+      },
+      {
+        "timestamp": "2025030601484000",
+        "label": "06 Mar 2025 \u00b7 01:48 UTC",
+        "time": "01:48",
+        "convective_pixels": 1016,
+        "strong_pixels": 251,
+        "max_dbz": 49.93000030517578,
+        "valid_fraction": 0.4068620597247952
+      },
+      {
+        "timestamp": "2025030601544000",
+        "label": "06 Mar 2025 \u00b7 01:54 UTC",
+        "time": "01:54",
+        "convective_pixels": 887,
+        "strong_pixels": 289,
+        "max_dbz": 51.709999084472656,
+        "valid_fraction": 0.39853565701598265
+      },
+      {
+        "timestamp": "2025030602003900",
+        "label": "06 Mar 2025 \u00b7 02:00 UTC",
+        "time": "02:00",
+        "convective_pixels": 899,
+        "strong_pixels": 268,
+        "max_dbz": 53.540000915527344,
+        "valid_fraction": 0.3924793223833736
+      },
+      {
+        "timestamp": "2025030602064000",
+        "label": "06 Mar 2025 \u00b7 02:06 UTC",
+        "time": "02:06",
+        "convective_pixels": 1145,
+        "strong_pixels": 345,
+        "max_dbz": 49.599998474121094,
+        "valid_fraction": 0.39199203047991893
+      },
+      {
+        "timestamp": "2025030602124000",
+        "label": "06 Mar 2025 \u00b7 02:12 UTC",
+        "time": "02:12",
+        "convective_pixels": 1211,
+        "strong_pixels": 411,
+        "max_dbz": 59.48999786376953,
+        "valid_fraction": 0.38461897946665885
+      },
+      {
+        "timestamp": "2025030602183900",
+        "label": "06 Mar 2025 \u00b7 02:18 UTC",
+        "time": "02:18",
+        "convective_pixels": 1135,
+        "strong_pixels": 325,
+        "max_dbz": 54.599998474121094,
+        "valid_fraction": 0.37228437071005055
+      },
+      {
+        "timestamp": "2025030602244000",
+        "label": "06 Mar 2025 \u00b7 02:24 UTC",
+        "time": "02:24",
+        "convective_pixels": 1057,
+        "strong_pixels": 305,
+        "max_dbz": 49.44000244140625,
+        "valid_fraction": 0.37256750486058493
+      },
+      {
+        "timestamp": "2025030602304000",
+        "label": "06 Mar 2025 \u00b7 02:30 UTC",
+        "time": "02:30",
+        "convective_pixels": 1131,
+        "strong_pixels": 334,
+        "max_dbz": 53.22999572753906,
+        "valid_fraction": 0.38353243566901307
+      },
+      {
+        "timestamp": "2025030602364000",
+        "label": "06 Mar 2025 \u00b7 02:36 UTC",
+        "time": "02:36",
+        "convective_pixels": 1177,
+        "strong_pixels": 342,
+        "max_dbz": 50.77000045776367,
+        "valid_fraction": 0.3830096094868125
+      },
+      {
+        "timestamp": "2025030602424000",
+        "label": "06 Mar 2025 \u00b7 02:42 UTC",
+        "time": "02:42",
+        "convective_pixels": 1183,
+        "strong_pixels": 397,
+        "max_dbz": 52.56999206542969,
+        "valid_fraction": 0.37391205564682445
+      },
+      {
+        "timestamp": "2025030602484000",
+        "label": "06 Mar 2025 \u00b7 02:48 UTC",
+        "time": "02:48",
+        "convective_pixels": 1262,
+        "strong_pixels": 427,
+        "max_dbz": 52.519996643066406,
+        "valid_fraction": 0.37666177310170457
+      },
+      {
+        "timestamp": "2025030602544000",
+        "label": "06 Mar 2025 \u00b7 02:54 UTC",
+        "time": "02:54",
+        "convective_pixels": 1477,
+        "strong_pixels": 440,
+        "max_dbz": 57.900001525878906,
+        "valid_fraction": 0.3916172561848293
+      },
+      {
+        "timestamp": "2025030603004000",
+        "label": "06 Mar 2025 \u00b7 03:00 UTC",
+        "time": "03:00",
+        "convective_pixels": 1321,
+        "strong_pixels": 406,
+        "max_dbz": 57.22999954223633,
+        "valid_fraction": 0.39273189089680405
+      },
+      {
+        "timestamp": "2025030603064000",
+        "label": "06 Mar 2025 \u00b7 03:06 UTC",
+        "time": "03:06",
+        "convective_pixels": 1655,
+        "strong_pixels": 512,
+        "max_dbz": 53.31000518798828,
+        "valid_fraction": 0.3938183788318361
+      },
+      {
+        "timestamp": "2025030603123900",
+        "label": "06 Mar 2025 \u00b7 03:12 UTC",
+        "time": "03:12",
+        "convective_pixels": 1587,
+        "strong_pixels": 464,
+        "max_dbz": 50.959999084472656,
+        "valid_fraction": 0.39618651473312594
+      },
+      {
+        "timestamp": "2025030603184000",
+        "label": "06 Mar 2025 \u00b7 03:18 UTC",
+        "time": "03:18",
+        "convective_pixels": 1652,
+        "strong_pixels": 479,
+        "max_dbz": 57.589996337890625,
+        "valid_fraction": 0.38468031661652596
+      },
+      {
+        "timestamp": "2025030603244000",
+        "label": "06 Mar 2025 \u00b7 03:24 UTC",
+        "time": "03:24",
+        "convective_pixels": 1797,
+        "strong_pixels": 532,
+        "max_dbz": 54.0099983215332,
+        "valid_fraction": 0.37862004733006865
+      },
+      {
+        "timestamp": "2025030603304000",
+        "label": "06 Mar 2025 \u00b7 03:30 UTC",
+        "time": "03:30",
+        "convective_pixels": 2113,
+        "strong_pixels": 639,
+        "max_dbz": 53.269996643066406,
+        "valid_fraction": 0.3980921837095514
+      },
+      {
+        "timestamp": "2025030603364000",
+        "label": "06 Mar 2025 \u00b7 03:36 UTC",
+        "time": "03:36",
+        "convective_pixels": 2149,
+        "strong_pixels": 763,
+        "max_dbz": 58.87999725341797,
+        "valid_fraction": 0.3956592913651881
+      },
+      {
+        "timestamp": "2025030603424000",
+        "label": "06 Mar 2025 \u00b7 03:42 UTC",
+        "time": "03:42",
+        "convective_pixels": 2273,
+        "strong_pixels": 782,
+        "max_dbz": 60.019996643066406,
+        "valid_fraction": 0.40662320714926536
+      },
+      {
+        "timestamp": "2025030603484100",
+        "label": "06 Mar 2025 \u00b7 03:48 UTC",
+        "time": "03:48",
+        "convective_pixels": 2729,
+        "strong_pixels": 828,
+        "max_dbz": 57.86000061035156,
+        "valid_fraction": 0.4031627576403696
+      },
+      {
+        "timestamp": "2025030603544000",
+        "label": "06 Mar 2025 \u00b7 03:54 UTC",
+        "time": "03:54",
+        "convective_pixels": 3117,
+        "strong_pixels": 1001,
+        "max_dbz": 61.220001220703125,
+        "valid_fraction": 0.4045230521863749
+      },
+      {
+        "timestamp": "2025030604004000",
+        "label": "06 Mar 2025 \u00b7 04:00 UTC",
+        "time": "04:00",
+        "convective_pixels": 3272,
+        "strong_pixels": 1104,
+        "max_dbz": 54.34000015258789,
+        "valid_fraction": 0.39892166800657136
+      },
+      {
+        "timestamp": "2025030604064000",
+        "label": "06 Mar 2025 \u00b7 04:06 UTC",
+        "time": "04:06",
+        "convective_pixels": 3302,
+        "strong_pixels": 1116,
+        "max_dbz": 55.30000305175781,
+        "valid_fraction": 0.4020937467230592
+      },
+      {
+        "timestamp": "2025030604124000",
+        "label": "06 Mar 2025 \u00b7 04:12 UTC",
+        "time": "04:12",
+        "convective_pixels": 3346,
+        "strong_pixels": 1143,
+        "max_dbz": 55.55000305175781,
+        "valid_fraction": 0.398251715660573
+      },
+      {
+        "timestamp": "2025030604184000",
+        "label": "06 Mar 2025 \u00b7 04:18 UTC",
+        "time": "04:18",
+        "convective_pixels": 3489,
+        "strong_pixels": 1374,
+        "max_dbz": 54.52000427246094,
+        "valid_fraction": 0.4154345369172871
+      },
+      {
+        "timestamp": "2025030604244100",
+        "label": "06 Mar 2025 \u00b7 04:24 UTC",
+        "time": "04:24",
+        "convective_pixels": 3749,
+        "strong_pixels": 1638,
+        "max_dbz": 53.58000183105469,
+        "valid_fraction": 0.396987544712037
+      },
+      {
+        "timestamp": "2025030604304000",
+        "label": "06 Mar 2025 \u00b7 04:30 UTC",
+        "time": "04:30",
+        "convective_pixels": 4076,
+        "strong_pixels": 1745,
+        "max_dbz": 59.459999084472656,
+        "valid_fraction": 0.407754768233198
+      },
+      {
+        "timestamp": "2025030604364100",
+        "label": "06 Mar 2025 \u00b7 04:36 UTC",
+        "time": "04:36",
+        "convective_pixels": 4078,
+        "strong_pixels": 1685,
+        "max_dbz": 57.79999542236328,
+        "valid_fraction": 0.4122265385401758
+      },
+      {
+        "timestamp": "2025030604424000",
+        "label": "06 Mar 2025 \u00b7 04:42 UTC",
+        "time": "04:42",
+        "convective_pixels": 4295,
+        "strong_pixels": 1852,
+        "max_dbz": 56.61000061035156,
+        "valid_fraction": 0.39292743503830924
+      },
+      {
+        "timestamp": "2025030604484000",
+        "label": "06 Mar 2025 \u00b7 04:48 UTC",
+        "time": "04:48",
+        "convective_pixels": 4688,
+        "strong_pixels": 2018,
+        "max_dbz": 56.720001220703125,
+        "valid_fraction": 0.4027170936884663
+      },
+      {
+        "timestamp": "2025030604544100",
+        "label": "06 Mar 2025 \u00b7 04:54 UTC",
+        "time": "04:54",
+        "convective_pixels": 5198,
+        "strong_pixels": 2283,
+        "max_dbz": 59.860008239746094,
+        "valid_fraction": 0.4028336071399443
+      },
+      {
+        "timestamp": "2025030605004000",
+        "label": "06 Mar 2025 \u00b7 05:00 UTC",
+        "time": "05:00",
+        "convective_pixels": 5440,
+        "strong_pixels": 2458,
+        "max_dbz": 57.27000045776367,
+        "valid_fraction": 0.39052978666387034
+      },
+      {
+        "timestamp": "2025030605064100",
+        "label": "06 Mar 2025 \u00b7 05:06 UTC",
+        "time": "05:06",
+        "convective_pixels": 5747,
+        "strong_pixels": 2591,
+        "max_dbz": 59.88999938964844,
+        "valid_fraction": 0.383525113511545
+      },
+      {
+        "timestamp": "2025030605124000",
+        "label": "06 Mar 2025 \u00b7 05:12 UTC",
+        "time": "05:12",
+        "convective_pixels": 6099,
+        "strong_pixels": 2603,
+        "max_dbz": 53.67000198364258,
+        "valid_fraction": 0.3866606303122353
+      },
+      {
+        "timestamp": "2025030605184100",
+        "label": "06 Mar 2025 \u00b7 05:18 UTC",
+        "time": "05:18",
+        "convective_pixels": 6405,
+        "strong_pixels": 2774,
+        "max_dbz": 55.44999694824219,
+        "valid_fraction": 0.3885796068580775
+      },
+      {
+        "timestamp": "2025030605244100",
+        "label": "06 Mar 2025 \u00b7 05:24 UTC",
+        "time": "05:24",
+        "convective_pixels": 6722,
+        "strong_pixels": 2638,
+        "max_dbz": 57.51000213623047,
+        "valid_fraction": 0.3816165076258054
+      },
+      {
+        "timestamp": "2025030605304000",
+        "label": "06 Mar 2025 \u00b7 05:30 UTC",
+        "time": "05:30",
+        "convective_pixels": 6467,
+        "strong_pixels": 2654,
+        "max_dbz": 56.74000549316406,
+        "valid_fraction": 0.3804977071589216
+      },
+      {
+        "timestamp": "2025030605364100",
+        "label": "06 Mar 2025 \u00b7 05:36 UTC",
+        "time": "05:36",
+        "convective_pixels": 6720,
+        "strong_pixels": 2609,
+        "max_dbz": 57.029998779296875,
+        "valid_fraction": 0.3972351357964277
+      },
+      {
+        "timestamp": "2025030605424100",
+        "label": "06 Mar 2025 \u00b7 05:42 UTC",
+        "time": "05:42",
+        "convective_pixels": 6684,
+        "strong_pixels": 2447,
+        "max_dbz": 55.400001525878906,
+        "valid_fraction": 0.38054167103592107
+      },
+      {
+        "timestamp": "2025030605484000",
+        "label": "06 Mar 2025 \u00b7 05:48 UTC",
+        "time": "05:48",
+        "convective_pixels": 6768,
+        "strong_pixels": 2480,
+        "max_dbz": 57.60000228881836,
+        "valid_fraction": 0.3994780197373787
+      },
+      {
+        "timestamp": "2025030605544100",
+        "label": "06 Mar 2025 \u00b7 05:54 UTC",
+        "time": "05:54",
+        "convective_pixels": 6571,
+        "strong_pixels": 2156,
+        "max_dbz": 56.90999984741211,
+        "valid_fraction": 0.38884248035750796
+      },
+      {
+        "timestamp": "2025030606004000",
+        "label": "06 Mar 2025 \u00b7 06:00 UTC",
+        "time": "06:00",
+        "convective_pixels": 6276,
+        "strong_pixels": 2146,
+        "max_dbz": 54.459999084472656,
+        "valid_fraction": 0.39612825800738694
+      },
+      {
+        "timestamp": "2025030606064000",
+        "label": "06 Mar 2025 \u00b7 06:06 UTC",
+        "time": "06:06",
+        "convective_pixels": 6269,
+        "strong_pixels": 2101,
+        "max_dbz": 55.5,
+        "valid_fraction": 0.3873460566022347
+      },
+      {
+        "timestamp": "2025030606124100",
+        "label": "06 Mar 2025 \u00b7 06:12 UTC",
+        "time": "06:12",
+        "convective_pixels": 6140,
+        "strong_pixels": 2133,
+        "max_dbz": 58.06999969482422,
+        "valid_fraction": 0.392435084849724
+      },
+      {
+        "timestamp": "2025030606184100",
+        "label": "06 Mar 2025 \u00b7 06:18 UTC",
+        "time": "06:18",
+        "convective_pixels": 6190,
+        "strong_pixels": 2147,
+        "max_dbz": 54.56000518798828,
+        "valid_fraction": 0.38221655190091697
+      },
+      {
+        "timestamp": "2025030606244100",
+        "label": "06 Mar 2025 \u00b7 06:24 UTC",
+        "time": "06:24",
+        "convective_pixels": 6555,
+        "strong_pixels": 2499,
+        "max_dbz": 57.20000076293945,
+        "valid_fraction": 0.40111867278090957
+      },
+      {
+        "timestamp": "2025030606304200",
+        "label": "06 Mar 2025 \u00b7 06:30 UTC",
+        "time": "06:30",
+        "convective_pixels": 6238,
+        "strong_pixels": 2194,
+        "max_dbz": 55.66999816894531,
+        "valid_fraction": 0.402979232993545
+      },
+      {
+        "timestamp": "2025030606364200",
+        "label": "06 Mar 2025 \u00b7 06:36 UTC",
+        "time": "06:36",
+        "convective_pixels": 5860,
+        "strong_pixels": 1816,
+        "max_dbz": 59.250003814697266,
+        "valid_fraction": 0.39796917054073894
+      },
+      {
+        "timestamp": "2025030606424100",
+        "label": "06 Mar 2025 \u00b7 06:42 UTC",
+        "time": "06:42",
+        "convective_pixels": 5561,
+        "strong_pixels": 1748,
+        "max_dbz": 53.900001525878906,
+        "valid_fraction": 0.3929532664546122
+      },
+      {
+        "timestamp": "2025030606484100",
+        "label": "06 Mar 2025 \u00b7 06:48 UTC",
+        "time": "06:48",
+        "convective_pixels": 5102,
+        "strong_pixels": 1602,
+        "max_dbz": 53.409996032714844,
+        "valid_fraction": 0.3808014720915968
+      },
+      {
+        "timestamp": "2025030606544000",
+        "label": "06 Mar 2025 \u00b7 06:54 UTC",
+        "time": "06:54",
+        "convective_pixels": 4840,
+        "strong_pixels": 1695,
+        "max_dbz": 53.53999710083008,
+        "valid_fraction": 0.3905734792081746
+      },
+      {
+        "timestamp": "2025030607004100",
+        "label": "06 Mar 2025 \u00b7 07:00 UTC",
+        "time": "07:00",
+        "convective_pixels": 5110,
+        "strong_pixels": 1803,
+        "max_dbz": 57.470001220703125,
+        "valid_fraction": 0.3937144025469521
+      },
+      {
+        "timestamp": "2025030607064100",
+        "label": "06 Mar 2025 \u00b7 07:06 UTC",
+        "time": "07:06",
+        "convective_pixels": 5386,
+        "strong_pixels": 1700,
+        "max_dbz": 54.87000274658203,
+        "valid_fraction": 0.39364360865461917
+      },
+      {
+        "timestamp": "2025030607124100",
+        "label": "06 Mar 2025 \u00b7 07:12 UTC",
+        "time": "07:12",
+        "convective_pixels": 5516,
+        "strong_pixels": 1704,
+        "max_dbz": 54.30000305175781,
+        "valid_fraction": 0.3954903468605451
+      },
+      {
+        "timestamp": "2025030607184200",
+        "label": "06 Mar 2025 \u00b7 07:18 UTC",
+        "time": "07:18",
+        "convective_pixels": 5167,
+        "strong_pixels": 1621,
+        "max_dbz": 56.50000762939453,
+        "valid_fraction": 0.4092447598075198
+      },
+      {
+        "timestamp": "2025030607264800",
+        "label": "06 Mar 2025 \u00b7 07:26 UTC",
+        "time": "07:26",
+        "convective_pixels": 5225,
+        "strong_pixels": 1777,
+        "max_dbz": 56.909996032714844,
+        "valid_fraction": 0.41154007480163585
+      },
+      {
+        "timestamp": "2025030607324600",
+        "label": "06 Mar 2025 \u00b7 07:32 UTC",
+        "time": "07:32",
+        "convective_pixels": 5156,
+        "strong_pixels": 1809,
+        "max_dbz": 55.71000671386719,
+        "valid_fraction": 0.40656786325981337
+      },
+      {
+        "timestamp": "2025030607384600",
+        "label": "06 Mar 2025 \u00b7 07:38 UTC",
+        "time": "07:38",
+        "convective_pixels": 5238,
+        "strong_pixels": 1958,
+        "max_dbz": 57.159996032714844,
+        "valid_fraction": 0.3961486478613956
+      },
+      {
+        "timestamp": "2025030607444700",
+        "label": "06 Mar 2025 \u00b7 07:44 UTC",
+        "time": "07:44",
+        "convective_pixels": 5412,
+        "strong_pixels": 1958,
+        "max_dbz": 52.41999435424805,
+        "valid_fraction": 0.3961311708436739
+      },
+      {
+        "timestamp": "2025030607504600",
+        "label": "06 Mar 2025 \u00b7 07:50 UTC",
+        "time": "07:50",
+        "convective_pixels": 5592,
+        "strong_pixels": 1814,
+        "max_dbz": 53.6300048828125,
+        "valid_fraction": 0.38560126766635205
+      },
+      {
+        "timestamp": "2025030607564600",
+        "label": "06 Mar 2025 \u00b7 07:56 UTC",
+        "time": "07:56",
+        "convective_pixels": 5970,
+        "strong_pixels": 1894,
+        "max_dbz": 55.179996490478516,
+        "valid_fraction": 0.39265033148076944
+      },
+      {
+        "timestamp": "2025030608024700",
+        "label": "06 Mar 2025 \u00b7 08:02 UTC",
+        "time": "08:02",
+        "convective_pixels": 5987,
+        "strong_pixels": 1957,
+        "max_dbz": 53.570003509521484,
+        "valid_fraction": 0.38916657928157805
+      },
+      {
+        "timestamp": "2025030608084600",
+        "label": "06 Mar 2025 \u00b7 08:08 UTC",
+        "time": "08:08",
+        "convective_pixels": 5895,
+        "strong_pixels": 2118,
+        "max_dbz": 55.62999725341797,
+        "valid_fraction": 0.3850653057895534
+      },
+      {
+        "timestamp": "2025030608144700",
+        "label": "06 Mar 2025 \u00b7 08:14 UTC",
+        "time": "08:14",
+        "convective_pixels": 5982,
+        "strong_pixels": 2124,
+        "max_dbz": 53.5099983215332,
+        "valid_fraction": 0.3823621937152644
+      },
+      {
+        "timestamp": "2025030608204600",
+        "label": "06 Mar 2025 \u00b7 08:20 UTC",
+        "time": "08:20",
+        "convective_pixels": 5911,
+        "strong_pixels": 2043,
+        "max_dbz": 55.0,
+        "valid_fraction": 0.386582893495054
+      },
+      {
+        "timestamp": "2025030608264700",
+        "label": "06 Mar 2025 \u00b7 08:26 UTC",
+        "time": "08:26",
+        "convective_pixels": 6017,
+        "strong_pixels": 2035,
+        "max_dbz": 54.78999328613281,
+        "valid_fraction": 0.383134095331306
+      },
+      {
+        "timestamp": "2025030608324600",
+        "label": "06 Mar 2025 \u00b7 08:32 UTC",
+        "time": "08:32",
+        "convective_pixels": 5938,
+        "strong_pixels": 1882,
+        "max_dbz": 55.53000259399414,
+        "valid_fraction": 0.3814271732671537
+      },
+      {
+        "timestamp": "2025030608384700",
+        "label": "06 Mar 2025 \u00b7 08:38 UTC",
+        "time": "08:38",
+        "convective_pixels": 5845,
+        "strong_pixels": 1950,
+        "max_dbz": 54.55000305175781,
+        "valid_fraction": 0.37267992589744486
+      },
+      {
+        "timestamp": "2025030608444600",
+        "label": "06 Mar 2025 \u00b7 08:44 UTC",
+        "time": "08:44",
+        "convective_pixels": 5525,
+        "strong_pixels": 1981,
+        "max_dbz": 57.13999938964844,
+        "valid_fraction": 0.3833350810351055
+      },
+      {
+        "timestamp": "2025030608504700",
+        "label": "06 Mar 2025 \u00b7 08:50 UTC",
+        "time": "08:50",
+        "convective_pixels": 5134,
+        "strong_pixels": 1904,
+        "max_dbz": 54.33000564575195,
+        "valid_fraction": 0.3826010462907943
+      },
+      {
+        "timestamp": "2025030608564700",
+        "label": "06 Mar 2025 \u00b7 08:56 UTC",
+        "time": "08:56",
+        "convective_pixels": 5099,
+        "strong_pixels": 1934,
+        "max_dbz": 54.81000518798828,
+        "valid_fraction": 0.37617532944178406
+      },
+      {
+        "timestamp": "2025030609024600",
+        "label": "06 Mar 2025 \u00b7 09:02 UTC",
+        "time": "09:02",
+        "convective_pixels": 5255,
+        "strong_pixels": 2130,
+        "max_dbz": 59.26000213623047,
+        "valid_fraction": 0.3726886644063057
+      },
+      {
+        "timestamp": "2025030609084600",
+        "label": "06 Mar 2025 \u00b7 09:08 UTC",
+        "time": "09:08",
+        "convective_pixels": 5565,
+        "strong_pixels": 2077,
+        "max_dbz": 55.68999481201172,
+        "valid_fraction": 0.3711885537185268
+      },
+      {
+        "timestamp": "2025030609144600",
+        "label": "06 Mar 2025 \u00b7 09:14 UTC",
+        "time": "09:14",
+        "convective_pixels": 5618,
+        "strong_pixels": 2130,
+        "max_dbz": 56.410003662109375,
+        "valid_fraction": 0.3657065958264882
+      },
+      {
+        "timestamp": "2025030609204600",
+        "label": "06 Mar 2025 \u00b7 09:20 UTC",
+        "time": "09:20",
+        "convective_pixels": 5667,
+        "strong_pixels": 2388,
+        "max_dbz": 53.339996337890625,
+        "valid_fraction": 0.3701777995269554
+      },
+      {
+        "timestamp": "2025030609264700",
+        "label": "06 Mar 2025 \u00b7 09:26 UTC",
+        "time": "09:26",
+        "convective_pixels": 5750,
+        "strong_pixels": 2507,
+        "max_dbz": 58.650001525878906,
+        "valid_fraction": 0.36288405746443425
+      },
+      {
+        "timestamp": "2025030609324700",
+        "label": "06 Mar 2025 \u00b7 09:32 UTC",
+        "time": "09:32",
+        "convective_pixels": 6189,
+        "strong_pixels": 2577,
+        "max_dbz": 55.19999694824219,
+        "valid_fraction": 0.3723099956890023
+      },
+      {
+        "timestamp": "2025030609384700",
+        "label": "06 Mar 2025 \u00b7 09:38 UTC",
+        "time": "09:38",
+        "convective_pixels": 6303,
+        "strong_pixels": 2642,
+        "max_dbz": 56.91999816894531,
+        "valid_fraction": 0.3759714309016976
+      },
+      {
+        "timestamp": "2025030609444700",
+        "label": "06 Mar 2025 \u00b7 09:44 UTC",
+        "time": "09:44",
+        "convective_pixels": 6267,
+        "strong_pixels": 2506,
+        "max_dbz": 54.12999725341797,
+        "valid_fraction": 0.390952147925478
+      },
+      {
+        "timestamp": "2025030609504600",
+        "label": "06 Mar 2025 \u00b7 09:50 UTC",
+        "time": "09:50",
+        "convective_pixels": 6381,
+        "strong_pixels": 2281,
+        "max_dbz": 52.730003356933594,
+        "valid_fraction": 0.37658895219453087
+      },
+      {
+        "timestamp": "2025030609564600",
+        "label": "06 Mar 2025 \u00b7 09:56 UTC",
+        "time": "09:56",
+        "convective_pixels": 6941,
+        "strong_pixels": 2513,
+        "max_dbz": 55.320003509521484,
+        "valid_fraction": 0.37820848917007466
+      },
+      {
+        "timestamp": "2025030610024600",
+        "label": "06 Mar 2025 \u00b7 10:02 UTC",
+        "time": "10:02",
+        "convective_pixels": 7121,
+        "strong_pixels": 2441,
+        "max_dbz": 63.35999298095703,
+        "valid_fraction": 0.3820476073962739
+      },
+      {
+        "timestamp": "2025030610084700",
+        "label": "06 Mar 2025 \u00b7 10:08 UTC",
+        "time": "10:08",
+        "convective_pixels": 7383,
+        "strong_pixels": 2525,
+        "max_dbz": 56.34000015258789,
+        "valid_fraction": 0.36943502627378333
+      },
+      {
+        "timestamp": "2025030610144700",
+        "label": "06 Mar 2025 \u00b7 10:14 UTC",
+        "time": "10:14",
+        "convective_pixels": 7433,
+        "strong_pixels": 2549,
+        "max_dbz": 53.660003662109375,
+        "valid_fraction": 0.3786308504316823
+      },
+      {
+        "timestamp": "2025030610204700",
+        "label": "06 Mar 2025 \u00b7 10:20 UTC",
+        "time": "10:20",
+        "convective_pixels": 7329,
+        "strong_pixels": 2579,
+        "max_dbz": 55.65999984741211,
+        "valid_fraction": 0.37961830193295815
+      },
+      {
+        "timestamp": "2025030610264700",
+        "label": "06 Mar 2025 \u00b7 10:26 UTC",
+        "time": "10:26",
+        "convective_pixels": 7113,
+        "strong_pixels": 2613,
+        "max_dbz": 57.01000213623047,
+        "valid_fraction": 0.39684772857026346
+      },
+      {
+        "timestamp": "2025030610324600",
+        "label": "06 Mar 2025 \u00b7 10:32 UTC",
+        "time": "10:32",
+        "convective_pixels": 7346,
+        "strong_pixels": 2746,
+        "max_dbz": 56.58000183105469,
+        "valid_fraction": 0.393078518414951
+      },
+      {
+        "timestamp": "2025030610384600",
+        "label": "06 Mar 2025 \u00b7 10:38 UTC",
+        "time": "10:38",
+        "convective_pixels": 7108,
+        "strong_pixels": 2641,
+        "max_dbz": 56.1300048828125,
+        "valid_fraction": 0.3927406294056649
+      },
+      {
+        "timestamp": "2025030610444700",
+        "label": "06 Mar 2025 \u00b7 10:44 UTC",
+        "time": "10:44",
+        "convective_pixels": 7311,
+        "strong_pixels": 2830,
+        "max_dbz": 55.69000244140625,
+        "valid_fraction": 0.38729362554906965
+      },
+      {
+        "timestamp": "2025030610504700",
+        "label": "06 Mar 2025 \u00b7 10:50 UTC",
+        "time": "10:50",
+        "convective_pixels": 7413,
+        "strong_pixels": 2771,
+        "max_dbz": 56.1199951171875,
+        "valid_fraction": 0.3932678527736027
+      },
+      {
+        "timestamp": "2025030610564600",
+        "label": "06 Mar 2025 \u00b7 10:56 UTC",
+        "time": "10:56",
+        "convective_pixels": 7386,
+        "strong_pixels": 2696,
+        "max_dbz": 55.56999969482422,
+        "valid_fraction": 0.38871800249338784
+      },
+      {
+        "timestamp": "2025030611024700",
+        "label": "06 Mar 2025 \u00b7 11:02 UTC",
+        "time": "11:02",
+        "convective_pixels": 7504,
+        "strong_pixels": 2680,
+        "max_dbz": 58.69000244140625,
+        "valid_fraction": 0.4009926946065923
+      },
+      {
+        "timestamp": "2025030611084700",
+        "label": "06 Mar 2025 \u00b7 11:08 UTC",
+        "time": "11:08",
+        "convective_pixels": 7938,
+        "strong_pixels": 2767,
+        "max_dbz": 53.720001220703125,
+        "valid_fraction": 0.41795996597807217
+      },
+      {
+        "timestamp": "2025030611144700",
+        "label": "06 Mar 2025 \u00b7 11:14 UTC",
+        "time": "11:14",
+        "convective_pixels": 8155,
+        "strong_pixels": 3030,
+        "max_dbz": 53.21999740600586,
+        "valid_fraction": 0.4250352453190721
+      },
+      {
+        "timestamp": "2025030611204700",
+        "label": "06 Mar 2025 \u00b7 11:20 UTC",
+        "time": "11:20",
+        "convective_pixels": 8306,
+        "strong_pixels": 2870,
+        "max_dbz": 54.49000549316406,
+        "valid_fraction": 0.42508185069966326
+      },
+      {
+        "timestamp": "2025030611264700",
+        "label": "06 Mar 2025 \u00b7 11:26 UTC",
+        "time": "11:26",
+        "convective_pixels": 8883,
+        "strong_pixels": 3009,
+        "max_dbz": 54.66999816894531,
+        "valid_fraction": 0.44776119402985076
+      },
+      {
+        "timestamp": "2025030611324700",
+        "label": "06 Mar 2025 \u00b7 11:32 UTC",
+        "time": "11:32",
+        "convective_pixels": 8923,
+        "strong_pixels": 3026,
+        "max_dbz": 54.970001220703125,
+        "valid_fraction": 0.44726018618849545
+      },
+      {
+        "timestamp": "2025030611384700",
+        "label": "06 Mar 2025 \u00b7 11:38 UTC",
+        "time": "11:38",
+        "convective_pixels": 9000,
+        "strong_pixels": 2785,
+        "max_dbz": 53.619998931884766,
+        "valid_fraction": 0.45185372901301457
+      },
+      {
+        "timestamp": "2025030611444600",
+        "label": "06 Mar 2025 \u00b7 11:44 UTC",
+        "time": "11:44",
+        "convective_pixels": 8866,
+        "strong_pixels": 2788,
+        "max_dbz": 56.30000305175781,
+        "valid_fraction": 0.4613175341093129
+      },
+      {
+        "timestamp": "2025030611504700",
+        "label": "06 Mar 2025 \u00b7 11:50 UTC",
+        "time": "11:50",
+        "convective_pixels": 9253,
+        "strong_pixels": 3037,
+        "max_dbz": 53.13999938964844,
+        "valid_fraction": 0.4653022941498596
+      },
+      {
+        "timestamp": "2025030611564700",
+        "label": "06 Mar 2025 \u00b7 11:56 UTC",
+        "time": "11:56",
+        "convective_pixels": 9836,
+        "strong_pixels": 3213,
+        "max_dbz": 58.350006103515625,
+        "valid_fraction": 0.45811341419366863
+      },
+      {
+        "timestamp": "2025030612024800",
+        "label": "06 Mar 2025 \u00b7 12:02 UTC",
+        "time": "12:02",
+        "convective_pixels": 10146,
+        "strong_pixels": 3148,
+        "max_dbz": 55.71000289916992,
+        "valid_fraction": 0.453493655842567
+      },
+      {
+        "timestamp": "2025030612084700",
+        "label": "06 Mar 2025 \u00b7 12:08 UTC",
+        "time": "12:08",
+        "convective_pixels": 9756,
+        "strong_pixels": 2891,
+        "max_dbz": 53.56999969482422,
+        "valid_fraction": 0.45843673902152005
+      },
+      {
+        "timestamp": "2025030612144700",
+        "label": "06 Mar 2025 \u00b7 12:14 UTC",
+        "time": "12:14",
+        "convective_pixels": 9205,
+        "strong_pixels": 2935,
+        "max_dbz": 53.150001525878906,
+        "valid_fraction": 0.4645944749321309
+      },
+      {
+        "timestamp": "2025030612204800",
+        "label": "06 Mar 2025 \u00b7 12:20 UTC",
+        "time": "12:20",
+        "convective_pixels": 8907,
+        "strong_pixels": 2684,
+        "max_dbz": 55.81999206542969,
+        "valid_fraction": 0.46253509967725775
+      },
+      {
+        "timestamp": "2025030612264700",
+        "label": "06 Mar 2025 \u00b7 12:26 UTC",
+        "time": "12:26",
+        "convective_pixels": 9027,
+        "strong_pixels": 2508,
+        "max_dbz": 61.29999923706055,
+        "valid_fraction": 0.4625496638586925
+      },
+      {
+        "timestamp": "2025030612324700",
+        "label": "06 Mar 2025 \u00b7 12:32 UTC",
+        "time": "12:32",
+        "convective_pixels": 9147,
+        "strong_pixels": 2709,
+        "max_dbz": 58.130001068115234,
+        "valid_fraction": 0.47189404266722595
+      },
+      {
+        "timestamp": "2025030612384700",
+        "label": "06 Mar 2025 \u00b7 12:38 UTC",
+        "time": "12:38",
+        "convective_pixels": 9347,
+        "strong_pixels": 2539,
+        "max_dbz": 56.58000183105469,
+        "valid_fraction": 0.45913581973038786
+      },
+      {
+        "timestamp": "2025030612444700",
+        "label": "06 Mar 2025 \u00b7 12:44 UTC",
+        "time": "12:44",
+        "convective_pixels": 9449,
+        "strong_pixels": 2481,
+        "max_dbz": 56.349998474121094,
+        "valid_fraction": 0.4650867442646254
+      },
+      {
+        "timestamp": "2025030612504700",
+        "label": "06 Mar 2025 \u00b7 12:50 UTC",
+        "time": "12:50",
+        "convective_pixels": 10032,
+        "strong_pixels": 2606,
+        "max_dbz": 52.36000442504883,
+        "valid_fraction": 0.46110780989665257
+      },
+      {
+        "timestamp": "2025030612564800",
+        "label": "06 Mar 2025 \u00b7 12:56 UTC",
+        "time": "12:56",
+        "convective_pixels": 10261,
+        "strong_pixels": 2753,
+        "max_dbz": 60.029998779296875,
+        "valid_fraction": 0.46949677840306664
+      },
+      {
+        "timestamp": "2025030613024700",
+        "label": "06 Mar 2025 \u00b7 13:02 UTC",
+        "time": "13:02",
+        "convective_pixels": 10831,
+        "strong_pixels": 3031,
+        "max_dbz": 58.470001220703125,
+        "valid_fraction": 0.468439418830904
+      },
+      {
+        "timestamp": "2025030613084700",
+        "label": "06 Mar 2025 \u00b7 13:08 UTC",
+        "time": "13:08",
+        "convective_pixels": 11452,
+        "strong_pixels": 3482,
+        "max_dbz": 58.709999084472656,
+        "valid_fraction": 0.47021333612965616
+      },
+      {
+        "timestamp": "2025030613144700",
+        "label": "06 Mar 2025 \u00b7 13:14 UTC",
+        "time": "13:14",
+        "convective_pixels": 12448,
+        "strong_pixels": 3440,
+        "max_dbz": 56.55000305175781,
+        "valid_fraction": 0.4698900113018048
+      },
+      {
+        "timestamp": "2025030613204800",
+        "label": "06 Mar 2025 \u00b7 13:20 UTC",
+        "time": "13:20",
+        "convective_pixels": 12986,
+        "strong_pixels": 3748,
+        "max_dbz": 57.119998931884766,
+        "valid_fraction": 0.4576124063523134
+      },
+      {
+        "timestamp": "2025030613264800",
+        "label": "06 Mar 2025 \u00b7 13:26 UTC",
+        "time": "13:26",
+        "convective_pixels": 14084,
+        "strong_pixels": 4319,
+        "max_dbz": 58.77000427246094,
+        "valid_fraction": 0.4486263064070747
+      },
+      {
+        "timestamp": "2025030613324700",
+        "label": "06 Mar 2025 \u00b7 13:32 UTC",
+        "time": "13:32",
+        "convective_pixels": 15404,
+        "strong_pixels": 4693,
+        "max_dbz": 56.37999725341797,
+        "valid_fraction": 0.45295769396576835
+      },
+      {
+        "timestamp": "2025030613384700",
+        "label": "06 Mar 2025 \u00b7 13:38 UTC",
+        "time": "13:38",
+        "convective_pixels": 16419,
+        "strong_pixels": 5253,
+        "max_dbz": 57.92000198364258,
+        "valid_fraction": 0.44533480140282194
+      },
+      {
+        "timestamp": "2025030613444800",
+        "label": "06 Mar 2025 \u00b7 13:44 UTC",
+        "time": "13:44",
+        "convective_pixels": 16911,
+        "strong_pixels": 6118,
+        "max_dbz": 59.69999694824219,
+        "valid_fraction": 0.44146655481375324
+      },
+      {
+        "timestamp": "2025030613504800",
+        "label": "06 Mar 2025 \u00b7 13:50 UTC",
+        "time": "13:50",
+        "convective_pixels": 17613,
+        "strong_pixels": 6306,
+        "max_dbz": 54.43000030517578,
+        "valid_fraction": 0.44404732776399036
+      },
+      {
+        "timestamp": "2025030613564700",
+        "label": "06 Mar 2025 \u00b7 13:56 UTC",
+        "time": "13:56",
+        "convective_pixels": 18149,
+        "strong_pixels": 6429,
+        "max_dbz": 58.400001525878906,
+        "valid_fraction": 0.44049949316648607
+      },
+      {
+        "timestamp": "2025030614024700",
+        "label": "06 Mar 2025 \u00b7 14:02 UTC",
+        "time": "14:02",
+        "convective_pixels": 19175,
+        "strong_pixels": 6827,
+        "max_dbz": 56.43000030517578,
+        "valid_fraction": 0.4451483798804572
+      },
+      {
+        "timestamp": "2025030614084800",
+        "label": "06 Mar 2025 \u00b7 14:08 UTC",
+        "time": "14:08",
+        "convective_pixels": 20034,
+        "strong_pixels": 7381,
+        "max_dbz": 56.19999694824219,
+        "valid_fraction": 0.43351742458666853
+      },
+      {
+        "timestamp": "2025030614144800",
+        "label": "06 Mar 2025 \u00b7 14:14 UTC",
+        "time": "14:14",
+        "convective_pixels": 20343,
+        "strong_pixels": 7676,
+        "max_dbz": 57.560001373291016,
+        "valid_fraction": 0.4278636093536999
+      },
+      {
+        "timestamp": "2025030614204800",
+        "label": "06 Mar 2025 \u00b7 14:20 UTC",
+        "time": "14:20",
+        "convective_pixels": 20944,
+        "strong_pixels": 8120,
+        "max_dbz": 55.8800048828125,
+        "valid_fraction": 0.4250468966642199
+      },
+      {
+        "timestamp": "2025030614264800",
+        "label": "06 Mar 2025 \u00b7 14:26 UTC",
+        "time": "14:26",
+        "convective_pixels": 23763,
+        "strong_pixels": 9713,
+        "max_dbz": 58.52000045776367,
+        "valid_fraction": 0.41813182331900217
+      },
+      {
+        "timestamp": "2025030614324700",
+        "label": "06 Mar 2025 \u00b7 14:32 UTC",
+        "time": "14:32",
+        "convective_pixels": 24006,
+        "strong_pixels": 10595,
+        "max_dbz": 57.769996643066406,
+        "valid_fraction": 0.41028172952567377
+      },
+      {
+        "timestamp": "2025030614384700",
+        "label": "06 Mar 2025 \u00b7 14:38 UTC",
+        "time": "14:38",
+        "convective_pixels": 25714,
+        "strong_pixels": 10021,
+        "max_dbz": 55.05000305175781,
+        "valid_fraction": 0.4011325107483659
+      },
+      {
+        "timestamp": "2025030614444700",
+        "label": "06 Mar 2025 \u00b7 14:44 UTC",
+        "time": "14:44",
+        "convective_pixels": 25211,
+        "strong_pixels": 8651,
+        "max_dbz": 54.44000244140625,
+        "valid_fraction": 0.40757861745138474
+      },
+      {
+        "timestamp": "2025030614504800",
+        "label": "06 Mar 2025 \u00b7 14:50 UTC",
+        "time": "14:50",
+        "convective_pixels": 24439,
+        "strong_pixels": 7367,
+        "max_dbz": 51.06999969482422,
+        "valid_fraction": 0.4012868910715742
+      },
+      {
+        "timestamp": "2025030614564800",
+        "label": "06 Mar 2025 \u00b7 14:56 UTC",
+        "time": "14:56",
+        "convective_pixels": 22644,
+        "strong_pixels": 7022,
+        "max_dbz": 50.160003662109375,
+        "valid_fraction": 0.3946077574655994
+      },
+      {
+        "timestamp": "2025030615024800",
+        "label": "06 Mar 2025 \u00b7 15:02 UTC",
+        "time": "15:02",
+        "convective_pixels": 20874,
+        "strong_pixels": 7324,
+        "max_dbz": 50.68999481201172,
+        "valid_fraction": 0.3952747969753108
+      },
+      {
+        "timestamp": "2025030615084800",
+        "label": "06 Mar 2025 \u00b7 15:08 UTC",
+        "time": "15:08",
+        "convective_pixels": 20645,
+        "strong_pixels": 6049,
+        "max_dbz": 53.769996643066406,
+        "valid_fraction": 0.3977244922926352
+      },
+      {
+        "timestamp": "2025030615144800",
+        "label": "06 Mar 2025 \u00b7 15:14 UTC",
+        "time": "15:14",
+        "convective_pixels": 23027,
+        "strong_pixels": 6910,
+        "max_dbz": 54.24999237060547,
+        "valid_fraction": 0.41739778857469095
+      },
+      {
+        "timestamp": "2025030615204800",
+        "label": "06 Mar 2025 \u00b7 15:20 UTC",
+        "time": "15:20",
+        "convective_pixels": 23219,
+        "strong_pixels": 6317,
+        "max_dbz": 56.68000793457031,
+        "valid_fraction": 0.4260518251832174
+      },
+      {
+        "timestamp": "2025030615264800",
+        "label": "06 Mar 2025 \u00b7 15:26 UTC",
+        "time": "15:26",
+        "convective_pixels": 23536,
+        "strong_pixels": 5159,
+        "max_dbz": 53.13999938964844,
+        "valid_fraction": 0.4333397415731646
+      },
+      {
+        "timestamp": "2025030615345800",
+        "label": "06 Mar 2025 \u00b7 15:34 UTC",
+        "time": "15:34",
+        "convective_pixels": 22894,
+        "strong_pixels": 5315,
+        "max_dbz": 53.58000183105469,
+        "valid_fraction": 0.45129737728220726
+      },
+      {
+        "timestamp": "2025030615405800",
+        "label": "06 Mar 2025 \u00b7 15:40 UTC",
+        "time": "15:40",
+        "convective_pixels": 20980,
+        "strong_pixels": 4539,
+        "max_dbz": 58.25,
+        "valid_fraction": 0.45817749659198154
+      },
+      {
+        "timestamp": "2025030615465900",
+        "label": "06 Mar 2025 \u00b7 15:46 UTC",
+        "time": "15:46",
+        "convective_pixels": 19832,
+        "strong_pixels": 4094,
+        "max_dbz": 57.849998474121094,
+        "valid_fraction": 0.463327391147308
+      },
+      {
+        "timestamp": "2025030615525800",
+        "label": "06 Mar 2025 \u00b7 15:52 UTC",
+        "time": "15:52",
+        "convective_pixels": 18833,
+        "strong_pixels": 4131,
+        "max_dbz": 49.519996643066406,
+        "valid_fraction": 0.4749204795693663
+      },
+      {
+        "timestamp": "2025030615585800",
+        "label": "06 Mar 2025 \u00b7 15:58 UTC",
+        "time": "15:58",
+        "convective_pixels": 17721,
+        "strong_pixels": 3549,
+        "max_dbz": 57.24000549316406,
+        "valid_fraction": 0.4771400608200217
+      },
+      {
+        "timestamp": "2025030616045800",
+        "label": "06 Mar 2025 \u00b7 16:04 UTC",
+        "time": "16:04",
+        "convective_pixels": 17431,
+        "strong_pixels": 3597,
+        "max_dbz": 52.290000915527344,
+        "valid_fraction": 0.4790304915702518
+      },
+      {
+        "timestamp": "2025030616105800",
+        "label": "06 Mar 2025 \u00b7 16:10 UTC",
+        "time": "16:10",
+        "convective_pixels": 16480,
+        "strong_pixels": 3561,
+        "max_dbz": 58.540000915527344,
+        "valid_fraction": 0.4974425297400585
+      },
+      {
+        "timestamp": "2025030616165800",
+        "label": "06 Mar 2025 \u00b7 16:16 UTC",
+        "time": "16:16",
+        "convective_pixels": 15862,
+        "strong_pixels": 3428,
+        "max_dbz": 52.209999084472656,
+        "valid_fraction": 0.4946695095948827
+      },
+      {
+        "timestamp": "2025030616225800",
+        "label": "06 Mar 2025 \u00b7 16:22 UTC",
+        "time": "16:22",
+        "convective_pixels": 15588,
+        "strong_pixels": 2889,
+        "max_dbz": 50.59999465942383,
+        "valid_fraction": 0.4839007538420311
+      },
+      {
+        "timestamp": "2025030616285900",
+        "label": "06 Mar 2025 \u00b7 16:28 UTC",
+        "time": "16:28",
+        "convective_pixels": 15684,
+        "strong_pixels": 2741,
+        "max_dbz": 52.099998474121094,
+        "valid_fraction": 0.4883486548522027
+      },
+      {
+        "timestamp": "2025030616345800",
+        "label": "06 Mar 2025 \u00b7 16:34 UTC",
+        "time": "16:34",
+        "convective_pixels": 15281,
+        "strong_pixels": 2773,
+        "max_dbz": 55.69000244140625,
+        "valid_fraction": 0.4971862001468069
+      },
+      {
+        "timestamp": "2025030616405900",
+        "label": "06 Mar 2025 \u00b7 16:40 UTC",
+        "time": "16:40",
+        "convective_pixels": 13966,
+        "strong_pixels": 2595,
+        "max_dbz": 54.16999816894531,
+        "valid_fraction": 0.4895254407121302
+      },
+      {
+        "timestamp": "2025030616465800",
+        "label": "06 Mar 2025 \u00b7 16:46 UTC",
+        "time": "16:46",
+        "convective_pixels": 13604,
+        "strong_pixels": 2326,
+        "max_dbz": 54.80999755859375,
+        "valid_fraction": 0.49258100597714005
+      },
+      {
+        "timestamp": "2025030616525900",
+        "label": "06 Mar 2025 \u00b7 16:52 UTC",
+        "time": "16:52",
+        "convective_pixels": 12795,
+        "strong_pixels": 2199,
+        "max_dbz": 52.709999084472656,
+        "valid_fraction": 0.5077452316869983
+      },
+      {
+        "timestamp": "2025030616585800",
+        "label": "06 Mar 2025 \u00b7 16:58 UTC",
+        "time": "16:58",
+        "convective_pixels": 13146,
+        "strong_pixels": 2144,
+        "max_dbz": 54.269996643066406,
+        "valid_fraction": 0.5054120498211518
+      },
+      {
+        "timestamp": "2025030617045900",
+        "label": "06 Mar 2025 \u00b7 17:04 UTC",
+        "time": "17:04",
+        "convective_pixels": 12420,
+        "strong_pixels": 1987,
+        "max_dbz": 54.83000183105469,
+        "valid_fraction": 0.507643282416955
+      },
+      {
+        "timestamp": "2025030617105800",
+        "label": "06 Mar 2025 \u00b7 17:10 UTC",
+        "time": "17:10",
+        "convective_pixels": 11935,
+        "strong_pixels": 1956,
+        "max_dbz": 55.189998626708984,
+        "valid_fraction": 0.5060150069325504
+      },
+      {
+        "timestamp": "2025030617165900",
+        "label": "06 Mar 2025 \u00b7 17:16 UTC",
+        "time": "17:16",
+        "convective_pixels": 12570,
+        "strong_pixels": 1863,
+        "max_dbz": 53.659996032714844,
+        "valid_fraction": 0.5100492851899752
+      },
+      {
+        "timestamp": "2025030617225900",
+        "label": "06 Mar 2025 \u00b7 17:22 UTC",
+        "time": "17:22",
+        "convective_pixels": 13155,
+        "strong_pixels": 1807,
+        "max_dbz": 52.899993896484375,
+        "valid_fraction": 0.5051528073916134
+      },
+      {
+        "timestamp": "2025030617285900",
+        "label": "06 Mar 2025 \u00b7 17:28 UTC",
+        "time": "17:28",
+        "convective_pixels": 11689,
+        "strong_pixels": 1904,
+        "max_dbz": 51.98999786376953,
+        "valid_fraction": 0.4949928344227341
+      },
+      {
+        "timestamp": "2025030617345900",
+        "label": "06 Mar 2025 \u00b7 17:34 UTC",
+        "time": "17:34",
+        "convective_pixels": 10716,
+        "strong_pixels": 1835,
+        "max_dbz": 53.58000183105469,
+        "valid_fraction": 0.49849697647593416
+      },
+      {
+        "timestamp": "2025030617405800",
+        "label": "06 Mar 2025 \u00b7 17:40 UTC",
+        "time": "17:40",
+        "convective_pixels": 10294,
+        "strong_pixels": 1748,
+        "max_dbz": 53.28999328613281,
+        "valid_fraction": 0.49608223519405314
+      },
+      {
+        "timestamp": "2025030617465900",
+        "label": "06 Mar 2025 \u00b7 17:46 UTC",
+        "time": "17:46",
+        "convective_pixels": 9912,
+        "strong_pixels": 1781,
+        "max_dbz": 54.720001220703125,
+        "valid_fraction": 0.4952549896885595
+      },
+      {
+        "timestamp": "2025030617525800",
+        "label": "06 Mar 2025 \u00b7 17:52 UTC",
+        "time": "17:52",
+        "convective_pixels": 9506,
+        "strong_pixels": 1574,
+        "max_dbz": 65.22000122070312,
+        "valid_fraction": 0.4916896780733336
+      },
+      {
+        "timestamp": "2025030617585900",
+        "label": "06 Mar 2025 \u00b7 17:58 UTC",
+        "time": "17:58",
+        "convective_pixels": 8450,
+        "strong_pixels": 1339,
+        "max_dbz": 53.58000183105469,
+        "valid_fraction": 0.4866184300977548
+      },
+      {
+        "timestamp": "2025030618045800",
+        "label": "06 Mar 2025 \u00b7 18:04 UTC",
+        "time": "18:04",
+        "convective_pixels": 8082,
+        "strong_pixels": 1180,
+        "max_dbz": 54.160003662109375,
+        "valid_fraction": 0.4898021601593904
+      },
+      {
+        "timestamp": "2025030618105900",
+        "label": "06 Mar 2025 \u00b7 18:10 UTC",
+        "time": "18:10",
+        "convective_pixels": 7513,
+        "strong_pixels": 1205,
+        "max_dbz": 56.849998474121094,
+        "valid_fraction": 0.4920566954454892
+      },
+      {
+        "timestamp": "2025030618165900",
+        "label": "06 Mar 2025 \u00b7 18:16 UTC",
+        "time": "18:16",
+        "convective_pixels": 7102,
+        "strong_pixels": 1370,
+        "max_dbz": 55.0,
+        "valid_fraction": 0.47976161347827606
+      },
+      {
+        "timestamp": "2025030618225900",
+        "label": "06 Mar 2025 \u00b7 18:22 UTC",
+        "time": "18:22",
+        "convective_pixels": 6933,
+        "strong_pixels": 1364,
+        "max_dbz": 53.019996643066406,
+        "valid_fraction": 0.4818268144057231
+      },
+      {
+        "timestamp": "2025030618285800",
+        "label": "06 Mar 2025 \u00b7 18:28 UTC",
+        "time": "18:28",
+        "convective_pixels": 6464,
+        "strong_pixels": 1256,
+        "max_dbz": 57.340003967285156,
+        "valid_fraction": 0.47808964544956717
+      },
+      {
+        "timestamp": "2025030618345900",
+        "label": "06 Mar 2025 \u00b7 18:34 UTC",
+        "time": "18:34",
+        "convective_pixels": 6200,
+        "strong_pixels": 1371,
+        "max_dbz": 55.94000244140625,
+        "valid_fraction": 0.47518846050776564
+      },
+      {
+        "timestamp": "2025030618405900",
+        "label": "06 Mar 2025 \u00b7 18:40 UTC",
+        "time": "18:40",
+        "convective_pixels": 5692,
+        "strong_pixels": 1418,
+        "max_dbz": 54.04999542236328,
+        "valid_fraction": 0.46720437624523753
+      },
+      {
+        "timestamp": "2025030618465900",
+        "label": "06 Mar 2025 \u00b7 18:46 UTC",
+        "time": "18:46",
+        "convective_pixels": 5125,
+        "strong_pixels": 1357,
+        "max_dbz": 52.840003967285156,
+        "valid_fraction": 0.4690598529600242
+      },
+      {
+        "timestamp": "2025030618525900",
+        "label": "06 Mar 2025 \u00b7 18:52 UTC",
+        "time": "18:52",
+        "convective_pixels": 4993,
+        "strong_pixels": 1313,
+        "max_dbz": 57.529998779296875,
+        "valid_fraction": 0.46206904587134584
+      },
+      {
+        "timestamp": "2025030618585900",
+        "label": "06 Mar 2025 \u00b7 18:58 UTC",
+        "time": "18:58",
+        "convective_pixels": 4710,
+        "strong_pixels": 1328,
+        "max_dbz": 55.220001220703125,
+        "valid_fraction": 0.4611748051312524
+      },
+      {
+        "timestamp": "2025030619045900",
+        "label": "06 Mar 2025 \u00b7 19:04 UTC",
+        "time": "19:04",
+        "convective_pixels": 4763,
+        "strong_pixels": 1164,
+        "max_dbz": 56.459999084472656,
+        "valid_fraction": 0.4631671851515257
+      },
+      {
+        "timestamp": "2025030619105900",
+        "label": "06 Mar 2025 \u00b7 19:10 UTC",
+        "time": "19:10",
+        "convective_pixels": 4605,
+        "strong_pixels": 1178,
+        "max_dbz": 56.590003967285156,
+        "valid_fraction": 0.4656926142123108
+      },
+      {
+        "timestamp": "2025030619165900",
+        "label": "06 Mar 2025 \u00b7 19:16 UTC",
+        "time": "19:16",
+        "convective_pixels": 4412,
+        "strong_pixels": 1254,
+        "max_dbz": 65.47000122070312,
+        "valid_fraction": 0.4668257075279341
+      },
+      {
+        "timestamp": "2025030619225900",
+        "label": "06 Mar 2025 \u00b7 19:22 UTC",
+        "time": "19:22",
+        "convective_pixels": 4198,
+        "strong_pixels": 1143,
+        "max_dbz": 52.41999816894531,
+        "valid_fraction": 0.45655504678015074
+      },
+      {
+        "timestamp": "2025030619285900",
+        "label": "06 Mar 2025 \u00b7 19:28 UTC",
+        "time": "19:28",
+        "convective_pixels": 4101,
+        "strong_pixels": 1078,
+        "max_dbz": 56.880001068115234,
+        "valid_fraction": 0.45056625537418293
+      },
+      {
+        "timestamp": "2025030619345900",
+        "label": "06 Mar 2025 \u00b7 19:34 UTC",
+        "time": "19:34",
+        "convective_pixels": 3852,
+        "strong_pixels": 929,
+        "max_dbz": 51.070003509521484,
+        "valid_fraction": 0.45293439127547275
+      },
+      {
+        "timestamp": "2025030619405800",
+        "label": "06 Mar 2025 \u00b7 19:40 UTC",
+        "time": "19:40",
+        "convective_pixels": 3720,
+        "strong_pixels": 866,
+        "max_dbz": 49.5,
+        "valid_fraction": 0.44778449672014636
+      },
+      {
+        "timestamp": "2025030619465900",
+        "label": "06 Mar 2025 \u00b7 19:46 UTC",
+        "time": "19:46",
+        "convective_pixels": 3445,
+        "strong_pixels": 807,
+        "max_dbz": 57.409996032714844,
+        "valid_fraction": 0.4408694233749286
+      },
+      {
+        "timestamp": "2025030619530000",
+        "label": "06 Mar 2025 \u00b7 19:53 UTC",
+        "time": "19:53",
+        "convective_pixels": 2979,
+        "strong_pixels": 661,
+        "max_dbz": 46.90999984741211,
+        "valid_fraction": 0.438778006920899
+      },
+      {
+        "timestamp": "2025030619585900",
+        "label": "06 Mar 2025 \u00b7 19:58 UTC",
+        "time": "19:58",
+        "convective_pixels": 2428,
+        "strong_pixels": 564,
+        "max_dbz": 48.22999572753906,
+        "valid_fraction": 0.4482680275437799
+      },
+      {
+        "timestamp": "2025030620050000",
+        "label": "06 Mar 2025 \u00b7 20:05 UTC",
+        "time": "20:05",
+        "convective_pixels": 2363,
+        "strong_pixels": 584,
+        "max_dbz": 52.970001220703125,
+        "valid_fraction": 0.4349592785487085
+      },
+      {
+        "timestamp": "2025030620105900",
+        "label": "06 Mar 2025 \u00b7 20:10 UTC",
+        "time": "20:10",
+        "convective_pixels": 2027,
+        "strong_pixels": 495,
+        "max_dbz": 50.25999450683594,
+        "valid_fraction": 0.4295064490195393
+      },
+      {
+        "timestamp": "2025030620170000",
+        "label": "06 Mar 2025 \u00b7 20:17 UTC",
+        "time": "20:17",
+        "convective_pixels": 1942,
+        "strong_pixels": 456,
+        "max_dbz": 49.33000183105469,
+        "valid_fraction": 0.4318600207393944
+      },
+      {
+        "timestamp": "2025030620225900",
+        "label": "06 Mar 2025 \u00b7 20:22 UTC",
+        "time": "20:22",
+        "convective_pixels": 1828,
+        "strong_pixels": 457,
+        "max_dbz": 54.709999084472656,
+        "valid_fraction": 0.4303453458701807
+      },
+      {
+        "timestamp": "2025030620290000",
+        "label": "06 Mar 2025 \u00b7 20:29 UTC",
+        "time": "20:29",
+        "convective_pixels": 1695,
+        "strong_pixels": 399,
+        "max_dbz": 52.73999786376953,
+        "valid_fraction": 0.43165612219930793
+      },
+      {
+        "timestamp": "2025030620345900",
+        "label": "06 Mar 2025 \u00b7 20:34 UTC",
+        "time": "20:34",
+        "convective_pixels": 1451,
+        "strong_pixels": 389,
+        "max_dbz": 52.63999938964844,
+        "valid_fraction": 0.42476143870809885
+      },
+      {
+        "timestamp": "2025030620410000",
+        "label": "06 Mar 2025 \u00b7 20:41 UTC",
+        "time": "20:41",
+        "convective_pixels": 1503,
+        "strong_pixels": 418,
+        "max_dbz": 51.79000473022461,
+        "valid_fraction": 0.4198416582194414
+      },
+      {
+        "timestamp": "2025030620470000",
+        "label": "06 Mar 2025 \u00b7 20:47 UTC",
+        "time": "20:47",
+        "convective_pixels": 1363,
+        "strong_pixels": 403,
+        "max_dbz": 52.83000183105469,
+        "valid_fraction": 0.41645694245400633
+      },
+      {
+        "timestamp": "2025030620525900",
+        "label": "06 Mar 2025 \u00b7 20:52 UTC",
+        "time": "20:52",
+        "convective_pixels": 1409,
+        "strong_pixels": 348,
+        "max_dbz": 48.34999465942383,
+        "valid_fraction": 0.4200484695958148
+      },
+      {
+        "timestamp": "2025030620590000",
+        "label": "06 Mar 2025 \u00b7 20:59 UTC",
+        "time": "20:59",
+        "convective_pixels": 1402,
+        "strong_pixels": 332,
+        "max_dbz": 49.469993591308594,
+        "valid_fraction": 0.4191309261654258
+      },
+      {
+        "timestamp": "2025030621045900",
+        "label": "06 Mar 2025 \u00b7 21:04 UTC",
+        "time": "21:04",
+        "convective_pixels": 1444,
+        "strong_pixels": 369,
+        "max_dbz": 51.099998474121094,
+        "valid_fraction": 0.420613559835483
+      },
+      {
+        "timestamp": "2025030621110000",
+        "label": "06 Mar 2025 \u00b7 21:11 UTC",
+        "time": "21:11",
+        "convective_pixels": 1595,
+        "strong_pixels": 374,
+        "max_dbz": 64.27999877929688,
+        "valid_fraction": 0.4208261968844303
+      },
+      {
+        "timestamp": "2025030621165900",
+        "label": "06 Mar 2025 \u00b7 21:16 UTC",
+        "time": "21:16",
+        "convective_pixels": 1561,
+        "strong_pixels": 428,
+        "max_dbz": 58.469993591308594,
+        "valid_fraction": 0.418833816864157
+      },
+      {
+        "timestamp": "2025030621225900",
+        "label": "06 Mar 2025 \u00b7 21:22 UTC",
+        "time": "21:22",
+        "convective_pixels": 1576,
+        "strong_pixels": 458,
+        "max_dbz": 52.66999816894531,
+        "valid_fraction": 0.40746501683619374
+      },
+      {
+        "timestamp": "2025030621290000",
+        "label": "06 Mar 2025 \u00b7 21:29 UTC",
+        "time": "21:29",
+        "convective_pixels": 1634,
+        "strong_pixels": 482,
+        "max_dbz": 51.980003356933594,
+        "valid_fraction": 0.4046453913104268
+      },
+      {
+        "timestamp": "2025030621350000",
+        "label": "06 Mar 2025 \u00b7 21:35 UTC",
+        "time": "21:35",
+        "convective_pixels": 1748,
+        "strong_pixels": 514,
+        "max_dbz": 51.20000457763672,
+        "valid_fraction": 0.3996673540960304
+      },
+      {
+        "timestamp": "2025030621410000",
+        "label": "06 Mar 2025 \u00b7 21:41 UTC",
+        "time": "21:41",
+        "convective_pixels": 1842,
+        "strong_pixels": 438,
+        "max_dbz": 51.52999496459961,
+        "valid_fraction": 0.40529786663870343
+      },
+      {
+        "timestamp": "2025030621465900",
+        "label": "06 Mar 2025 \u00b7 21:46 UTC",
+        "time": "21:46",
+        "convective_pixels": 1846,
+        "strong_pixels": 463,
+        "max_dbz": 52.80999755859375,
+        "valid_fraction": 0.40369289384459434
+      },
+      {
+        "timestamp": "2025030621530000",
+        "label": "06 Mar 2025 \u00b7 21:53 UTC",
+        "time": "21:53",
+        "convective_pixels": 1801,
+        "strong_pixels": 495,
+        "max_dbz": 50.51000213623047,
+        "valid_fraction": 0.4045230521863749
+      },
+      {
+        "timestamp": "2025030621590000",
+        "label": "06 Mar 2025 \u00b7 21:59 UTC",
+        "time": "21:59",
+        "convective_pixels": 1825,
+        "strong_pixels": 508,
+        "max_dbz": 49.16999435424805,
+        "valid_fraction": 0.39945762988337
+      },
+      {
+        "timestamp": "2025030622050000",
+        "label": "06 Mar 2025 \u00b7 22:05 UTC",
+        "time": "22:05",
+        "convective_pixels": 1969,
+        "strong_pixels": 577,
+        "max_dbz": 52.13999938964844,
+        "valid_fraction": 0.3943106481643306
+      },
+      {
+        "timestamp": "2025030622110000",
+        "label": "06 Mar 2025 \u00b7 22:11 UTC",
+        "time": "22:11",
+        "convective_pixels": 1878,
+        "strong_pixels": 509,
+        "max_dbz": 51.8699951171875,
+        "valid_fraction": 0.39735164924790567
+      },
+      {
+        "timestamp": "2025030622170000",
+        "label": "06 Mar 2025 \u00b7 22:17 UTC",
+        "time": "22:17",
+        "convective_pixels": 2032,
+        "strong_pixels": 561,
+        "max_dbz": 53.369998931884766,
+        "valid_fraction": 0.39377468628753187
+      },
+      {
+        "timestamp": "2025030622230000",
+        "label": "06 Mar 2025 \u00b7 22:23 UTC",
+        "time": "22:23",
+        "convective_pixels": 1882,
+        "strong_pixels": 520,
+        "max_dbz": 51.18999481201172,
+        "valid_fraction": 0.38982779311871557
+      },
+      {
+        "timestamp": "2025030622290000",
+        "label": "06 Mar 2025 \u00b7 22:29 UTC",
+        "time": "22:29",
+        "convective_pixels": 2014,
+        "strong_pixels": 490,
+        "max_dbz": 49.869998931884766,
+        "valid_fraction": 0.3880072704393722
+      },
+      {
+        "timestamp": "2025030622350000",
+        "label": "06 Mar 2025 \u00b7 22:35 UTC",
+        "time": "22:35",
+        "convective_pixels": 2018,
+        "strong_pixels": 507,
+        "max_dbz": 48.25,
+        "valid_fraction": 0.4022830810817109
+      },
+      {
+        "timestamp": "2025030622410000",
+        "label": "06 Mar 2025 \u00b7 22:41 UTC",
+        "time": "22:41",
+        "convective_pixels": 2088,
+        "strong_pixels": 434,
+        "max_dbz": 49.599998474121094,
+        "valid_fraction": 0.41020017010963916
+      },
+      {
+        "timestamp": "2025030622470000",
+        "label": "06 Mar 2025 \u00b7 22:47 UTC",
+        "time": "22:47",
+        "convective_pixels": 1975,
+        "strong_pixels": 408,
+        "max_dbz": 52.0,
+        "valid_fraction": 0.40446188262434896
+      },
+      {
+        "timestamp": "2025030622530000",
+        "label": "06 Mar 2025 \u00b7 22:53 UTC",
+        "time": "22:53",
+        "convective_pixels": 1753,
+        "strong_pixels": 399,
+        "max_dbz": 51.249996185302734,
+        "valid_fraction": 0.4122828480548079
+      },
+      {
+        "timestamp": "2025030622590000",
+        "label": "06 Mar 2025 \u00b7 22:59 UTC",
+        "time": "22:59",
+        "convective_pixels": 1719,
+        "strong_pixels": 336,
+        "max_dbz": 48.68000030517578,
+        "valid_fraction": 0.4239749729106225
+      },
+      {
+        "timestamp": "2025030623050000",
+        "label": "06 Mar 2025 \u00b7 23:05 UTC",
+        "time": "23:05",
+        "convective_pixels": 1611,
+        "strong_pixels": 286,
+        "max_dbz": 48.46000289916992,
+        "valid_fraction": 0.4266606079671898
+      },
+      {
+        "timestamp": "2025030623110000",
+        "label": "06 Mar 2025 \u00b7 23:11 UTC",
+        "time": "23:11",
+        "convective_pixels": 1530,
+        "strong_pixels": 242,
+        "max_dbz": 48.74000549316406,
+        "valid_fraction": 0.4247410488540902
+      },
+      {
+        "timestamp": "2025030623170000",
+        "label": "06 Mar 2025 \u00b7 23:17 UTC",
+        "time": "23:17",
+        "convective_pixels": 1546,
+        "strong_pixels": 288,
+        "max_dbz": 49.43000030517578,
+        "valid_fraction": 0.4263751500110688
+      },
+      {
+        "timestamp": "2025030623230000",
+        "label": "06 Mar 2025 \u00b7 23:23 UTC",
+        "time": "23:23",
+        "convective_pixels": 1441,
+        "strong_pixels": 282,
+        "max_dbz": 49.44999694824219,
+        "valid_fraction": 0.40588334673238025
+      },
+      {
+        "timestamp": "2025030623290000",
+        "label": "06 Mar 2025 \u00b7 23:29 UTC",
+        "time": "23:29",
+        "convective_pixels": 1475,
+        "strong_pixels": 322,
+        "max_dbz": 50.150001525878906,
+        "valid_fraction": 0.4277150547030655
+      },
+      {
+        "timestamp": "2025030623350100",
+        "label": "06 Mar 2025 \u00b7 23:35 UTC",
+        "time": "23:35",
+        "convective_pixels": 1582,
+        "strong_pixels": 351,
+        "max_dbz": 53.829994201660156,
+        "valid_fraction": 0.42915108299253146
+      },
+      {
+        "timestamp": "2025030623430900",
+        "label": "06 Mar 2025 \u00b7 23:43 UTC",
+        "time": "23:43",
+        "convective_pixels": 1568,
+        "strong_pixels": 291,
+        "max_dbz": 50.88999938964844,
+        "valid_fraction": 0.42040966129539653
+      },
+      {
+        "timestamp": "2025030623491100",
+        "label": "06 Mar 2025 \u00b7 23:49 UTC",
+        "time": "23:49",
+        "convective_pixels": 1643,
+        "strong_pixels": 328,
+        "max_dbz": 53.34999465942383,
+        "valid_fraction": 0.4247119204912207
+      }
+    ],
+    "init_index": 146,
+    "init_window_indices": [
+      144,
+      145,
+      146
+    ],
+    "cappi": [
+      {
+        "timestamp": "2025030614264800",
+        "n_sweeps": 7,
+        "elevations_deg": [
+          0.4,
+          0.8,
+          1.8,
+          3.6,
+          4.3,
+          5.0,
+          9.0
+        ],
+        "radar_alt_m": 43.0,
+        "met_fraction": 0.1285904868431346,
+        "max_rain_mmh": 481.38018798828125,
+        "coverage_fraction": 0.7801348770984867,
+        "elapsed_s": 1.47271728515625
+      },
+      {
+        "timestamp": "2025030614324700",
+        "n_sweeps": 7,
+        "elevations_deg": [
+          0.4,
+          0.8,
+          1.8,
+          3.6,
+          4.3,
+          5.0,
+          9.0
+        ],
+        "radar_alt_m": 43.0,
+        "met_fraction": 0.1364526481010804,
+        "max_rain_mmh": 647.7660522460938,
+        "coverage_fraction": 0.7801348770984867,
+        "elapsed_s": 0.28490781784057617
+      },
+      {
+        "timestamp": "2025030614384700",
+        "n_sweeps": 7,
+        "elevations_deg": [
+          0.4,
+          0.8,
+          1.8,
+          3.6,
+          4.3,
+          5.0,
+          9.0
+        ],
+        "radar_alt_m": 43.0,
+        "met_fraction": 0.1418434758292845,
+        "max_rain_mmh": 502.1975402832031,
+        "coverage_fraction": 0.7801348770984867,
+        "elapsed_s": 0.30312085151672363
+      }
+    ],
+    "n_steps": 5,
+    "timestep_min": 6.0,
+    "activity_peak_pixels": 25714,
+    "radar": {
+      "name": "BMKG Surabaya Baron GEN3-350CM",
+      "lat": -7.410306,
+      "lon": 112.760422,
+      "band": "C-band dual-pol"
+    },
+    "warnings": [],
+    "product": "BMKG Surabaya Baron GEN3-350CM \u00b7 pseudo-CAPPI \u00b7 STEPS",
+    "grid_shape": [
+      301,
+      301
+    ],
+    "valid_pixels": 70681,
+    "software": {
+      "pysteps": "1.21.5",
+      "wradlib": "2.8.0",
+      "numpy": "2.2.6"
+    },
+    "verification": "pysteps",
+    "district_source": "cached geoBoundaries ADM2"
+  },
+  "district_source": "cached geoBoundaries ADM2",
+  "storage": {
+    "ensemble_dtype": "float16",
+    "verified": true
+  }
+}
