@@ -124,3 +124,4 @@ Radar-based verification is not the same as verification against rain gauges.
 Low-level radar coverage, beam broadening, attenuation residue and the Z–R
 assumption all affect the scores. Treat the dashboard as a research tool for
 exploring sensitivity and skill, not as an authoritative forecast.
+# Nowcasting
