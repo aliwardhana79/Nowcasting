@@ -151,6 +151,15 @@ def run_radar_nowcast(
     _emit(progress, 0.005, "Inspecting Radar archive")
     inventory = radar.inventory_archive(data_dir)
     timestamps = inventory["timestamps"]
+    if config.scan_subset:
+        wanted = set(config.scan_subset)
+        timestamps = [ts for ts in timestamps if ts in wanted]
+        if not timestamps:
+            raise ValueError(
+                "None of the selected scan times exist in this archive folder."
+            )
+        inventory["timestamps"] = timestamps
+        inventory["n_scans"] = len(timestamps)
     timestep_min = radar.infer_timestep_min(timestamps)
     n_steps = config.n_steps(timestep_min)
 
