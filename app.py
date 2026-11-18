@@ -415,50 +415,47 @@ def render_sidebar():
         inventory_error = ""
         manual_ts = None
         if source_mode == SOURCE_RADAR:
-            archive_path = st.text_input(
-                "Radar archive folder",
-                value=st.session_state.get("archive_path", str(DEFAULT_DATA_DIR)),
-                key="archive_path",
-                help="Folder containing *dBZ.vol, *RhoHV.vol, *ZDR.vol and *PhiDP.vol.",
-            )
-            if archive_path.strip():
-                try:
-                    inventory = cached_inventory(archive_path)
-                except Exception as exc:  # noqa: BLE001
-                    inventory_error = str(exc)
+            # Default radar archive from config
+            archive_path = str(DEFAULT_DATA_DIR)
+            
+            # Load inventory from default archive
+            try:
+                inventory = cached_inventory(archive_path)
+                archive_loaded = inventory is not None
+            except Exception as exc:  # noqa: BLE001
+                inventory = None
+                archive_loaded = False
             
             # Date/time selection from available scans
             selected_ts = None
-            if inventory and inventory.get("timestamps"):
+            if archive_loaded and inventory and inventory.get("timestamps"):
                 ts_options = inventory["timestamps"]
-                # Show a date/time selector
                 selected_ts = st.selectbox(
                     "Select scan date/time",
                     options=ts_options,
                     index=0 if ts_options else None,
                     format_func=lambda ts: timestamp_label(ts),
                     key="selected_scan_ts",
-                    help="Choose a specific scan from the archive",
+                    help="Choose a specific scan from the radar archive",
                 )
-            elif inventory:
+            elif archive_loaded and inventory:
                 selected_ts = inventory["timestamps"][0] if inventory["timestamps"] else None
             
-            # Update archive_path to include the selected timestamp if provided
-            effective_archive = archive_path
-            if selected_ts and selected_ts != archive_path.split("/")[-1].replace("dBZ.vol", "")[:14]:
-                # If user selected a different timestamp, we need to point to that scan's directory
+            # Determine effective archive path
+            if selected_ts:
                 effective_archive = f"{archive_path}/{selected_ts}"
+            else:
+                effective_archive = archive_path
             
-
-            if inventory:
+            if archive_loaded:
                 st.caption(
                     f"✓ {inventory['n_scans']} complete scans · "
                     f"{inventory['timestep_min']:.0f} min cadence"
                 )
                 if inventory["n_incomplete"]:
                     st.caption(f"⚠ {inventory['n_incomplete']} incomplete scans ignored")
-            elif inventory_error:
-                st.caption("⚠ Archive not ready")
+            else:
+                st.caption("• Select a scan date/time to load the radar archive")
         else:
             st.markdown(
                 "<div class='sidebar-note'>Synthetic 06 Mar 2025 convective event. "
