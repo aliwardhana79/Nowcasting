@@ -239,6 +239,14 @@ def cached_inventory(path_str: str) -> dict:
     return radar_core.inventory_archive(path_str)
 
 
+def short_path(value: str | Path, keep: int = 2) -> str:
+    """Compact `…/parent/name` form so long paths fit the narrow sidebar."""
+    parts = Path(value).parts
+    if len(parts) <= keep + 1:
+        return str(Path(value))
+    return "…/" + "/".join(parts[-keep:])
+
+
 def fmt(value, digits: int = 2, suffix: str = "") -> str:
     try:
         if value is None or not np.isfinite(float(value)):
@@ -429,18 +437,109 @@ def render_sidebar():
             if not folder_options:
                 folder_options = [str(default_dir)]
 
+            # A folder chosen through the local browser is kept as an option
+            folder_override = st.session_state.get("folder_override")
+            if folder_override:
+                folder_override = str(Path(folder_override).expanduser())
+                if folder_override not in folder_options:
+                    folder_options.insert(0, folder_override)
+            override_ver = int(st.session_state.get("folder_override_ver", 0))
+
+            if folder_override and folder_override in folder_options:
+                folder_index = folder_options.index(folder_override)
+            elif str(default_dir) in folder_options:
+                folder_index = folder_options.index(str(default_dir))
+            else:
+                folder_index = 0
+
             archive_path = st.selectbox(
                 "Radar archive folder",
                 options=folder_options,
-                index=(
-                    folder_options.index(str(default_dir))
-                    if str(default_dir) in folder_options
-                    else 0
-                ),
+                index=folder_index,
                 format_func=lambda p: Path(p).name,
-                key="archive_folder_select",
+                key=f"archive_folder_select_{override_ver}",
                 help="Date folders found next to the configured radar archive.",
             )
+            st.caption(f"📁 {short_path(archive_path)}")
+
+            # ---- Local folder browser: click through folders, no uploads
+            with st.expander("📂 Browse my local folder", expanded=False):
+                browse_dir = Path(
+                    st.session_state.get("browse_dir", str(archive_path))
+                ).expanduser()
+                if not browse_dir.is_dir():
+                    browse_dir = Path.home()
+
+                nav1, nav2 = st.columns(2)
+                with nav1:
+                    if st.button("⬆ Parent", key="browse_parent", width="stretch"):
+                        st.session_state["browse_dir"] = str(browse_dir.parent)
+                        st.rerun()
+                with nav2:
+                    if st.button("🏠 Home", key="browse_home", width="stretch"):
+                        st.session_state["browse_dir"] = str(Path.home())
+                        st.rerun()
+
+                st.caption(f"`{browse_dir}`")
+                try:
+                    n_dbz = len(list(browse_dir.glob("*dBZ.vol")))
+                except OSError:
+                    n_dbz = 0
+                if n_dbz:
+                    st.caption(f"✓ {n_dbz} dBZ volumes in this folder")
+                else:
+                    st.caption("No dBZ volumes in this folder")
+
+                try:
+                    subdirs = sorted(
+                        p
+                        for p in browse_dir.iterdir()
+                        if p.is_dir() and not p.name.startswith(".")
+                    )
+                except OSError as exc:
+                    subdirs = []
+                    st.caption(f"⚠ {exc}")
+
+                if subdirs:
+                    sub_choice = st.selectbox(
+                        "Subfolders",
+                        options=["— stay here —"] + [p.name for p in subdirs],
+                        index=0,
+                        key=f"browse_sub_{abs(hash(str(browse_dir)))}",
+                    )
+                    if sub_choice != "— stay here —":
+                        st.session_state["browse_dir"] = str(browse_dir / sub_choice)
+                        st.rerun()
+
+                already_active = str(browse_dir) == str(Path(archive_path))
+                if already_active:
+                    st.caption("✓ This is the active radar folder")
+                elif not n_dbz:
+                    st.caption("Open a date subfolder that contains dBZ volumes.")
+
+                if st.button(
+                    "✅ Use this folder",
+                    key="browse_use",
+                    type="primary",
+                    width="stretch",
+                    disabled=already_active or n_dbz == 0,
+                    help=(
+                        "Already selected above."
+                        if already_active
+                        else (
+                            "This folder has no *dBZ.vol files."
+                            if n_dbz == 0
+                            else "Make this the active radar folder."
+                        )
+                    ),
+                ):
+                    st.session_state["folder_override"] = str(browse_dir)
+                    st.session_state["folder_override_ver"] = (
+                        int(st.session_state.get("folder_override_ver", 0)) + 1
+                    )
+                    st.session_state.pop("activity_profile", None)
+                    st.session_state.pop("activity_path", None)
+                    st.rerun()
 
             # ---- Load inventory for the chosen folder
             inventory = None
