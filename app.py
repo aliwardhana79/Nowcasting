@@ -10,6 +10,7 @@ import html
 import io
 import json
 import sys
+import os
 from pathlib import Path
 
 import numpy as np
@@ -474,9 +475,12 @@ def render_sidebar():
 
             # ---- Local folder browser: click through folders, no uploads
             with st.expander("📂 Open a local folder", expanded=True):
+                # Priority: SBY_RADAR_DIR env var > Downloads > archive path
                 downloads_dir = Path.home() / "Downloads"
+                sb_ra_dir = Path(os.environ.get("SBY_RADAR_DIR", ""))
                 default_browse = (
-                    downloads_dir if downloads_dir.is_dir() else Path(archive_path)
+                    sb_ra_dir if sb_ra_dir.is_dir()
+                    else (downloads_dir if downloads_dir.is_dir() else Path(archive_path))
                 )
                 browse_dir = Path(
                     st.session_state.get("browse_dir", str(default_browse))
