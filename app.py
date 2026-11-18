@@ -36,7 +36,7 @@ from nowcast.pipeline import run_demo_nowcast, run_radar_nowcast, workload_estim
 # Page setup
 # --------------------------------------------------------------------------- #
 st.set_page_config(
-    page_title="Surabaya Radar Nowcast Lab",
+    page_title="Dr. AW Radar Lab",
     page_icon="🌧️",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -397,7 +397,7 @@ def render_sidebar():
             """
             <div class="side-brand">
               <div class="side-mark">SBY</div>
-              <div><b>Baron Radar Lab</b><br><span>Nowcast dashboard</span></div>
+              <div><b>Dr. AW Radar Lab</b><br><span>Nowcast dashboard</span></div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -684,7 +684,7 @@ def render_landing(
     st.markdown(
         """
         <div class="hero">
-          <div class="eyebrow">BMKG Baron · C-band dual-pol · STEPS</div>
+          <div class="eyebrow">Dr. AW Radar Lab · C-band dual-pol · STEPS</div>
           <h1>2-hour rainfall nowcasting,<br>with verification built in.</h1>
           <p>Turn BMKG Surabaya Rainbow5 volumes into a quality-controlled 1.5 km
           pseudo-CAPPI, a 20-member STEPS ensemble and a skill assessment against
