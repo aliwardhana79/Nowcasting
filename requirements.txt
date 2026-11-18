@@ -1,18 +1,8 @@
-# Core UI
-streamlit==1.65.0
-watchdog==6.0.0
-
-# Radar processing and nowcasting
-pysteps==1.21.5
-opencv-python-headless==5.0.0.93
-numpy==2.2.6
-scipy==1.15.3
-
-# Tables, plots and publication figures
-pandas==2.3.3
-plotly==7.1.0
-matplotlib==3.10.9
-Pillow==12.3.0
-
-# Coordinate support used by the radar/geodata stack
-pyproj==3.7.1
+streamlit
+numpy
+pandas
+scipy
+matplotlib
+plotly
+pysteps
+opencv-python-headless
