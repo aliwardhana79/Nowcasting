@@ -414,48 +414,108 @@ def render_sidebar():
         inventory = None
         inventory_error = ""
         manual_ts = None
+        selected_scan_ts: list[str] = []
         if source_mode == SOURCE_RADAR:
-            # Default radar archive from config
-            archive_path = str(DEFAULT_DATA_DIR)
-            
-            # Load inventory from default archive
+            # ---- Folder menu: radar date folders next to the configured archive
+            default_dir = Path(DEFAULT_DATA_DIR)
+            archive_root = default_dir.parent
+            folder_options: list[str] = []
+            if archive_root.is_dir():
+                folder_options = [
+                    str(p) for p in sorted(archive_root.iterdir()) if p.is_dir()
+                ]
+            if str(default_dir) not in folder_options:
+                folder_options.insert(0, str(default_dir))
+            if not folder_options:
+                folder_options = [str(default_dir)]
+
+            archive_path = st.selectbox(
+                "Radar archive folder",
+                options=folder_options,
+                index=(
+                    folder_options.index(str(default_dir))
+                    if str(default_dir) in folder_options
+                    else 0
+                ),
+                format_func=lambda p: Path(p).name,
+                key="archive_folder_select",
+                help="Date folders found next to the configured radar archive.",
+            )
+
+            # ---- Load inventory for the chosen folder
+            inventory = None
+            inventory_error = ""
             try:
                 inventory = cached_inventory(archive_path)
-                archive_loaded = inventory is not None
             except Exception as exc:  # noqa: BLE001
-                inventory = None
-                archive_loaded = False
-            
-            # Date/time selection from available scans
-            selected_ts = None
-            if archive_loaded and inventory and inventory.get("timestamps"):
-                ts_options = inventory["timestamps"]
-                selected_ts = st.selectbox(
-                    "Select scan date/time",
-                    options=ts_options,
-                    index=0 if ts_options else None,
-                    format_func=lambda ts: timestamp_label(ts),
-                    key="selected_scan_ts",
-                    help="Choose a specific scan from the radar archive",
+                inventory_error = str(exc)
+
+            # ---- File menu: scan times, with multi-select for a range
+            selected_scan_ts: list[str] = []
+            if inventory and inventory.get("timestamps"):
+                all_ts = inventory["timestamps"]
+                timestep = inventory["timestep_min"]
+                horizon_hint = float(st.session_state.get("cfg_horizon", 120))
+                default_n = min(
+                    len(all_ts), max(1, int(round(horizon_hint / timestep)) + 4)
                 )
-            elif archive_loaded and inventory:
-                selected_ts = inventory["timestamps"][0] if inventory["timestamps"] else None
-            
-            # Determine effective archive path
-            if selected_ts:
-                effective_archive = f"{archive_path}/{selected_ts}"
-            else:
-                effective_archive = archive_path
-            
-            if archive_loaded:
+
+                # Centre the default window on the archive's most active scan,
+                # using the same one-time cached activity profile as the landing page.
+                activity = st.session_state.get("activity_profile")
+                if activity is None or st.session_state.get("activity_path") != archive_path:
+                    try:
+                        with st.spinner("Profiling archive activity (one-time)…"):
+                            activity = radar_core.activity_profile(
+                                Path(archive_path), all_ts
+                            )
+                        st.session_state["activity_profile"] = activity
+                        st.session_state["activity_path"] = archive_path
+                    except Exception:  # noqa: BLE001
+                        activity = None
+                default_range = all_ts[:default_n]
+                if activity:
+                    peak_i = max(
+                        range(len(activity)),
+                        key=lambda i: activity[i]["convective_pixels"],
+                    )
+                    start = max(0, min(peak_i - 3, len(all_ts) - default_n))
+                    default_range = all_ts[start : start + default_n]
+
+                folder_key = "".join(
+                    ch if ch.isalnum() else "_" for ch in Path(archive_path).name
+                )
+                selected_scan_ts = st.multiselect(
+                    "Scan range · date/time",
+                    options=all_ts,
+                    default=default_range,
+                    format_func=radar_core.timestamp_label,
+                    key=f"scan_range_select_{folder_key}",
+                    help=(
+                        "Click one scan or Shift-click to pick a contiguous range. "
+                        "The run uses only these scans."
+                    ),
+                )
                 st.caption(
                     f"✓ {inventory['n_scans']} complete scans · "
-                    f"{inventory['timestep_min']:.0f} min cadence"
+                    f"{timestep:.0f} min cadence · "
+                    f"{len(selected_scan_ts)} selected"
                 )
                 if inventory["n_incomplete"]:
                     st.caption(f"⚠ {inventory['n_incomplete']} incomplete scans ignored")
+                if not selected_scan_ts:
+                    st.caption("• Select at least one scan to run the nowcast")
+                else:
+                    needed = int(round(horizon_hint / timestep)) + 4
+                    if len(selected_scan_ts) < needed:
+                        st.caption(
+                            f"⚠ {len(selected_scan_ts)} scans selected; a "
+                            f"{horizon_hint:.0f}-min forecast needs at least {needed}."
+                        )
+            elif inventory_error:
+                st.caption(f"⚠ {inventory_error[:120]}")
             else:
-                st.caption("• Select a scan date/time to load the radar archive")
+                st.caption("• No complete dual-pol scans found in this folder")
         else:
             st.markdown(
                 "<div class='sidebar-note'>Synthetic 06 Mar 2025 convective event. "
@@ -498,10 +558,14 @@ def render_sidebar():
             if init_mode == "manual":
                 options = []
                 if inventory:
-                    ts_list = inventory["timestamps"]
+                    ts_list = (
+                        [ts for ts in inventory["timestamps"] if ts in set(selected_scan_ts)]
+                        if selected_scan_ts
+                        else inventory["timestamps"]
+                    )
                     timestep = inventory["timestep_min"]
                     n_steps = max(1, int(round(horizon / timestep)))
-                    last = max(3, len(ts_list) - n_steps - 1)
+                    last = max(3, len(ts_list) - n_steps)
                     options = ts_list[2:last]
                 if options:
                     manual_ts = st.selectbox(
@@ -591,6 +655,7 @@ def render_sidebar():
                     fss_thr_mmh=float(fss_thr),
                     init_mode=init_mode,
                     init_timestamp=manual_ts,
+                    scan_subset=tuple(selected_scan_ts),
                     geojson_path=geojson_path.strip() or None,
                     save_run=bool(save_run),
                 )
