@@ -1,4 +1,4 @@
-# Surabaya Radar Nowcast Lab
+# Dr. Ali Wardhana IMAM Lab
 
 An interactive Streamlit dashboard for the BMKG Surabaya **Baron** C-band dual-pol radar.
 It turns Rainbow5 volumes into a quality-controlled 1.5 km pseudo-CAPPI, runs a

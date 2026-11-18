@@ -1,9 +1,8 @@
-streamlit
-numpy
-pandas
-scipy
-matplotlib
-plotly
-pysteps
-opencv-python-headless
-plotly
+streamlit>=1.65,<2
+numpy>=1.26,<3
+pandas>=2.1,<3
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+plotly>=5.20,<8
+pysteps>=1.21,<2
+opencv-python-headless>=4.9,<6

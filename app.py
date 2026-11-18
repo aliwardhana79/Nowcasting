@@ -52,6 +52,15 @@ PLOT_CONFIG = {
 SOURCE_RADAR = "Radar archive"
 SOURCE_DEMO = "Synthetic demo"
 
+# Local radar archives only exist when the app runs on the machine that holds
+# them. On Streamlit Community Cloud the mount is absent, so start in demo mode.
+LOCAL_ARCHIVE_AVAILABLE = Path(DEFAULT_DATA_DIR).is_dir()
+DEPLOY_HINT = (
+    "No radar archive is available in this deployment. Switch **Data source** "
+    "to *Synthetic demo*, or run the dashboard locally next to your Rainbow5 "
+    "archive to browse and verify real scans."
+)
+
 CSS = """
 <style>
 :root {
@@ -414,6 +423,7 @@ def render_sidebar():
         source_mode = st.radio(
             "Data source",
             [SOURCE_RADAR, SOURCE_DEMO],
+            index=0 if LOCAL_ARCHIVE_AVAILABLE else 1,
             horizontal=True,
             key="source_mode",
         )
@@ -463,9 +473,13 @@ def render_sidebar():
             st.caption(f"📁 {short_path(archive_path)}")
 
             # ---- Local folder browser: click through folders, no uploads
-            with st.expander("📂 Browse my local folder", expanded=False):
+            with st.expander("📂 Open a local folder", expanded=True):
+                downloads_dir = Path.home() / "Downloads"
+                default_browse = (
+                    downloads_dir if downloads_dir.is_dir() else Path(archive_path)
+                )
                 browse_dir = Path(
-                    st.session_state.get("browse_dir", str(archive_path))
+                    st.session_state.get("browse_dir", str(default_browse))
                 ).expanduser()
                 if not browse_dir.is_dir():
                     browse_dir = Path.home()
@@ -478,6 +492,21 @@ def render_sidebar():
                 with nav2:
                     if st.button("🏠 Home", key="browse_home", width="stretch"):
                         st.session_state["browse_dir"] = str(Path.home())
+                        st.rerun()
+
+                jumps = [
+                    ("📥 Downloads", downloads_dir),
+                    ("🛰 Radar archive", Path(DEFAULT_DATA_DIR).parent),
+                ]
+                for label, path in jumps:
+                    if not path.is_dir():
+                        continue
+                    if st.button(
+                        label,
+                        key=f"browse_jump_{path.name.lower()}",
+                        width="stretch",
+                    ):
+                        st.session_state["browse_dir"] = str(path)
                         st.rerun()
 
                 st.caption(f"`{browse_dir}`")
@@ -506,6 +535,7 @@ def render_sidebar():
                         options=["— stay here —"] + [p.name for p in subdirs],
                         index=0,
                         key=f"browse_sub_{abs(hash(str(browse_dir)))}",
+                        help="Type to filter, then pick a folder to open it.",
                     )
                     if sub_choice != "— stay here —":
                         st.session_state["browse_dir"] = str(browse_dir / sub_choice)
@@ -544,10 +574,11 @@ def render_sidebar():
             # ---- Load inventory for the chosen folder
             inventory = None
             inventory_error = ""
-            try:
-                inventory = cached_inventory(archive_path)
-            except Exception as exc:  # noqa: BLE001
-                inventory_error = str(exc)
+            if LOCAL_ARCHIVE_AVAILABLE:
+                try:
+                    inventory = cached_inventory(archive_path)
+                except Exception as exc:  # noqa: BLE001
+                    inventory_error = str(exc)
 
             # ---- File menu: scan times, with multi-select for a range
             selected_scan_ts: list[str] = []
@@ -613,6 +644,8 @@ def render_sidebar():
                         )
             elif inventory_error:
                 st.caption(f"⚠ {inventory_error[:120]}")
+            elif not LOCAL_ARCHIVE_AVAILABLE:
+                st.warning(DEPLOY_HINT, icon="🛰️")
             else:
                 st.caption("• No complete dual-pol scans found in this folder")
         else:
