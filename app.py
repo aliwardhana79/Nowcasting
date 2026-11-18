@@ -416,7 +416,7 @@ def render_sidebar():
         manual_ts = None
         if source_mode == SOURCE_RADAR:
             archive_path = st.text_input(
-                "Rainbow5 archive folder",
+                "Radar archive folder",
                 value=st.session_state.get("archive_path", str(DEFAULT_DATA_DIR)),
                 key="archive_path",
                 help="Folder containing *dBZ.vol, *RhoHV.vol, *ZDR.vol and *PhiDP.vol.",
@@ -426,6 +426,30 @@ def render_sidebar():
                     inventory = cached_inventory(archive_path)
                 except Exception as exc:  # noqa: BLE001
                     inventory_error = str(exc)
+            
+            # Date/time selection from available scans
+            selected_ts = None
+            if inventory and inventory.get("timestamps"):
+                ts_options = inventory["timestamps"]
+                # Show a date/time selector
+                selected_ts = st.selectbox(
+                    "Select scan date/time",
+                    options=ts_options,
+                    index=0 if ts_options else None,
+                    format_func=lambda ts: timestamp_label(ts),
+                    key="selected_scan_ts",
+                    help="Choose a specific scan from the archive",
+                )
+            elif inventory:
+                selected_ts = inventory["timestamps"][0] if inventory["timestamps"] else None
+            
+            # Update archive_path to include the selected timestamp if provided
+            effective_archive = archive_path
+            if selected_ts and selected_ts != archive_path.split("/")[-1].replace("dBZ.vol", "")[:14]:
+                # If user selected a different timestamp, we need to point to that scan's directory
+                effective_archive = f"{archive_path}/{selected_ts}"
+            
+
             if inventory:
                 st.caption(
                     f"✓ {inventory['n_scans']} complete scans · "
@@ -761,7 +785,7 @@ def render_landing(
     # Pipeline explainer
     st.markdown("### How the pipeline works")
     steps = [
-        ("01 · Ingest", "Rainbow5 ingest", "Open dBZ, RhoHV, ZDR and ΦDP volumes from the Baron radar archive."),
+        ("01 · Ingest", "Radar ingest", "Open dBZ, RhoHV, ZDR and ΦDP volumes from the Radar archive."),
         ("02 · Build", "Dual-pol pseudo-CAPPI", "QC echoes, correct C-band attenuation, project to 1.5 km and interpolate vertically."),
         ("03 · Nowcast", "STEPS ensemble", "Lucas–Kanade motion + stochastic cascade nowcast, 2 hours ahead."),
         ("04 · Verify", "Radar-based skill", "Score against future pseudo-CAPPIs with CRPS, Brier, ROC AUC and FSS."),
