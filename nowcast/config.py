@@ -56,6 +56,7 @@ class NowcastConfig:
     init_mode: str = "auto"  # "auto" | "manual"
     init_timestamp: str | None = None
     lookback_scans: int = 3
+    scan_subset: tuple[str, ...] = ()
 
     # Optional local ADM2 boundaries
     geojson_path: str | None = None
