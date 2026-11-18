@@ -148,7 +148,7 @@ def run_radar_nowcast(
     config: NowcastConfig, progress: ProgressFn | None = None
 ) -> NowcastResult:
     data_dir = Path(config.data_dir).expanduser()
-    _emit(progress, 0.005, "Inspecting Rainbow5 archive")
+    _emit(progress, 0.005, "Inspecting Radar archive")
     inventory = radar.inventory_archive(data_dir)
     timestamps = inventory["timestamps"]
     timestep_min = radar.infer_timestep_min(timestamps)
