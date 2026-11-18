@@ -6,3 +6,4 @@ matplotlib
 plotly
 pysteps
 opencv-python-headless
+plotly
