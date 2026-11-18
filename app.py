@@ -573,7 +573,53 @@ def render_sidebar():
                     )
                     st.session_state.pop("activity_profile", None)
                     st.session_state.pop("activity_path", None)
+                    # Reset file selection when folder changes
+                    if "selected_vol_files" in st.session_state:
+                        if st.session_state["selected_vol_files"] != str(browse_dir):
+                            st.session_state.pop("selected_vol_files")
                     st.rerun()
+
+            # ---- Selected-files area (shown after a folder is confirmed)
+            if "archive_path" in st.session_state and LOCAL_ARCHIVE_AVAILABLE:
+                selected_dir = Path(st.session_state["archive_path"])
+                vol_files = sorted(selected_dir.glob("*dBZ.vol"))
+                if vol_files:
+                    st.markdown("#### Select specific .vol files")
+                    # Initialise selection state per folder
+                    folder_key = "".join(
+                        ch if ch.isalnum() else "_" for ch in str(selected_dir)
+                    )
+                    if "selected_vol_files" not in st.session_state:
+                        st.session_state["selected_vol_files"] = []
+                    current_selection = st.session_state["selected_vol_files"]
+                    # Ensure all stored filenames still exist
+                    current_selection = [f for f in current_selection if f in [p.name for p in vol_files]]
+                    # If nothing stored yet, check the first 8 files by default
+                    if not current_selection and len(vol_files) > 0:
+                        current_selection = [vol_files[i].name for i in range(min(8, len(vol_files)))]
+                    # Multiselect with labels showing size info
+                    chosen = st.multiselect(
+                        "Choose .vol files to include",
+                        options=[p.name for p in vol_files],
+                        default=current_selection,
+                        format_func=lambda name: name,
+                        key=f"vol_select_{folder_key}",
+                        help="Check the files you want to use. Hold Ctrl (or Cmd) to pick non-contiguous files.",
+                    )
+                    # Update session state only if changed
+                    if chosen != current_selection:
+                        st.session_state["selected_vol_files"] = chosen
+                        st.rerun()
+                    selected_vol_names = set(chosen)
+                    # Build timestamp list from selected files only
+                    selected_ts = []
+                    for name in chosen:
+                        ts = name[:16]
+                        if ts in inventory.get("timestamps", []):
+                            selected_ts.append(ts)
+                    st.caption(f"📁 {selected_dir}  |  {len(selected_vol_names)} of {len(vol_files)} files selected")
+                else:
+                    st.info("No *dBZ.vol files in this folder.")
 
             # ---- Load inventory for the chosen folder
             inventory = None
